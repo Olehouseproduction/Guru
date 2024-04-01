@@ -1,0 +1,299 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+html {
+  font-size: 10px;
+  font-family: "Roboto Regular", sans-serif;
+}
+
+.inner {
+  width: 122.9rem;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.8rem 0 2rem 0;
+}
+
+// --------------dropdown-----------------------
+// .dropdown {
+//   // width: 40px;
+//   // display: flex;
+//   display: none;
+//   flex-direction: column;
+
+//   &:hover button {
+//     display: block;
+//     padding: 28px 18px 4px 18px;
+//     a {
+//       display: flex;
+//       align-items: center;
+//       padding: 11px 0;
+//     }
+//   }
+
+//   button:first-child {
+//     display: block;
+//   }
+
+//   button {
+//     display: none;
+//     border: none;
+//     padding: 5px;
+//     background: none;
+//   }
+
+//   .flag {
+//     margin: 0 1.5rem 0 0;
+//   }
+// }
+
+// .dropdown.show {
+//   display: flex;
+//   background: #fff;
+// }
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background: #fff;
+
+  button {
+    display: block;
+    border: none;
+    padding: 5px;
+    background: none;
+
+    a {
+      display: flex;
+      align-items: center;
+    }
+  }
+  &:not(.show) {
+    display: none;
+  }
+}
+// --------------dropdown END-----------------------
+
+.breadcrumb {
+  background-color: $dark-grey;
+  color: #ffffff;
+  flex-direction: column;
+}
+
+.breadcrumb-list {
+  background-color: $dark-grey;
+  color: #ffffff;
+  display: flex;
+
+  font-size: 1.4rem;
+  font-family: "Roboto Regular";
+  line-height: 16px;
+  padding: 1rem 0 1rem 0rem;
+
+  li:nth-child(odd):not(:last-child) {
+    margin-right: 0.56rem;
+  }
+  li:nth-child(even):not(:last-child) {
+    margin-right: 0.2rem;
+  }
+}
+
+// -------------------------main----------------------------------
+
+.main {
+  padding: 3rem 0 5rem 0;
+  background-color: #f6f6f6;
+}
+
+.main-title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 1.05rem 0;
+}
+
+.main-title {
+  font-family: "Akrobat";
+  font-size: 30px;
+  line-height: 35px;
+  font-weight: 500;
+}
+
+.all-restaurants {
+  font-size: 15px;
+  line-height: 18px;
+  color: #000000;
+  opacity: 0.6;
+}
+
+// ---------------slider------------------------------
+
+.slider-item {
+  width: 28.5rem;
+}
+
+.card-image {
+  border-radius: 20px;
+  margin: 0 0 0.6rem 0;
+  position: relative;
+}
+
+.open-until {
+  width: 13.6rem;
+  // padding: 0.8rem 1.2rem;
+  padding: 0.8rem 0;
+  background: rgba(47, 34, 36, 0.16);
+  backdrop-filter: blur(24px);
+  border-radius: 1.6rem;
+  position: relative;
+  left: 9px;
+  bottom: 192px;
+  font-family: "Roboto Bold";
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 125%;
+  display: flex;
+  align-items: center;
+  color: #d0c8c9;
+  justify-content: center;
+  span {
+    color: #f6f4f4;
+    margin: 0 0 0 0.4rem;
+  }
+}
+
+.card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0.4rem;
+}
+
+.card-title-name {
+  font-family: "Roboto Bold";
+  font-size: 16px;
+  line-height: 120%;
+  display: flex;
+  color: #5b484a;
+}
+
+.card-title-rating {
+  font-family: "Inter";
+  font-weight: 600;
+  font-size: 14px;
+  color: #a72536;
+  display: flex;
+  align-items: center;
+  &::before {
+    content: "";
+    margin: 0 4px 0 0;
+    width: 19px;
+    height: 17px;
+    background: url("/img/card/star.svg") left center no-repeat;
+  }
+
+  .card-title-rating-count {
+    color: #ab9c9e;
+    margin: 0 0 0 0.4rem;
+  }
+}
+
+.card-text {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0.4rem 0 0.4rem;
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  font-family: "Roboto Medium";
+  font-size: 1.1rem;
+  line-height: 125%;
+
+  .text-town {
+    color: $taupe;
+  }
+
+  .text-price {
+    display: flex;
+    align-items: center;
+  }
+
+  .text-cuisine {
+    color: $dark-grey;
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: url("/img/card/restaurant_menu.svg");
+      margin: 0 0.8rem 0 0;
+    }
+  }
+
+  .text-currency {
+    color: #5b484a;
+    display: flex;
+    align-items: center;
+    span {
+      color: #ab9c9e;
+      display: flex;
+      align-items: center;
+      margin: 0 0 0 0.3rem;
+    }
+    ::after {
+      content: "";
+      display: inline-block;
+      width: 0.1rem;
+      height: 1.6rem;
+      background-color: #ab9c9e;
+      margin: 0 0.8rem;
+    }
+  }
+
+  .text-check {
+    color: $dark-grey;
+    display: flex;
+    align-items: center;
+    &::before {
+      content: url("/img/card/receipt_long.svg");
+      margin: 0 0.4rem 0 0;
+    }
+  }
+}
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 1.1rem;
+  font-family: "Roboto Bold";
+  font-weight: 700;
+  .text-time {
+    color: $dark-grey;
+    display: flex;
+    align-items: center;
+    &::before {
+      content: url("/img/card/directions_car.svg");
+      margin: 0 0.4rem 0 0;
+    }
+  }
+  .text-distance {
+    color: $taupe;
+  }
+}
