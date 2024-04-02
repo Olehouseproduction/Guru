@@ -30,63 +30,89 @@ html {
 }
 
 // --------------dropdown-----------------------
-// .dropdown {
-//   // width: 40px;
-//   // display: flex;
-//   display: none;
-//   flex-direction: column;
 
-//   &:hover button {
-//     display: block;
-//     padding: 28px 18px 4px 18px;
-//     a {
-//       display: flex;
-//       align-items: center;
-//       padding: 11px 0;
-//     }
-//   }
+.wrapper-language {
+  position: relative;
+}
 
-//   button:first-child {
-//     display: block;
-//   }
+.active-lang {
+  display: block;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
 
-//   button {
-//     display: none;
-//     border: none;
-//     padding: 5px;
-//     background: none;
-//   }
+  position: static;
+  background-size: 23px;
+}
 
-//   .flag {
-//     margin: 0 1.5rem 0 0;
-//   }
-// }
-
-// .dropdown.show {
-//   display: flex;
-//   background: #fff;
-// }
 .dropdown {
+  top: 56px;
+  position: absolute;
+  display: none;
+  background-color: #fff;
+  right: 0px;
+  z-index: 10001;
+  padding: 18px 18px 4px;
+  min-width: 165px;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 0 8px 0 #86878940;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.is-open {
   display: flex;
   flex-direction: column;
+  // display: none;
+}
+.lang {
+  display: block;
+  color: #000;
+  position: relative;
+  padding-left: 40px;
+  font-family: "Roboto Regular";
+  font-size: 15px;
+  line-height: 40px;
+}
+
+.close_btn {
+  display: block;
+  width: 28px;
+  height: 28px;
   position: absolute;
-  background: #fff;
+  top: 19px;
+  right: 8px;
+  cursor: pointer;
+  z-index: 1;
 
-  button {
-    display: block;
-    border: none;
-    padding: 5px;
-    background: none;
-
-    a {
-      display: flex;
-      align-items: center;
-    }
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 1px;
+    background: #c4c4c4;
   }
-  &:not(.show) {
-    display: none;
+  &:before {
+    transform: rotate(45deg);
+  }
+  &:after {
+    transform: rotate(-45deg);
   }
 }
+
+.flag-russian {
+  background: url("/img/header/ru.svg") no-repeat left center;
+}
+
+.flag-english {
+  background: url("/img/header/en.svg") no-repeat left center;
+}
+
+.flag-espanol {
+  background: url("/img/header/es.svg") no-repeat left center;
+}
+
 // --------------dropdown END-----------------------
 
 .breadcrumb {
@@ -139,6 +165,11 @@ html {
   line-height: 18px;
   color: #000000;
   opacity: 0.6;
+  transition: all 0.3s ease-in;
+  &:hover {
+    opacity: 1;
+    transition: all 0.3s ease-in;
+  }
 }
 
 // ---------------slider------------------------------
