@@ -60,13 +60,17 @@ html {
   box-sizing: border-box;
 }
 
-.is-open {
+.show {
   display: flex;
   flex-direction: column;
-  // display: none;
+  transition: all 0.5s ease-in; //не отрабатывает
 }
+
+.hide {
+  display: none;
+}
+
 .lang {
-  display: block;
   color: #000;
   position: relative;
   padding-left: 40px;
@@ -75,7 +79,7 @@ html {
   line-height: 40px;
 }
 
-.close_btn {
+.close-icon-wrapper {
   display: block;
   width: 28px;
   height: 28px;
