@@ -48,7 +48,6 @@ html {
 .dropdown {
   top: 56px;
   position: absolute;
-  display: none;
   background-color: #fff;
   right: 0px;
   z-index: 10001;
@@ -58,12 +57,14 @@ html {
   box-shadow: 0 0 8px 0 #86878940;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
 }
 
 .show {
   display: flex;
+  opacity: 1;
   flex-direction: column;
-  transition: all 0.5s ease-in; //не отрабатывает
 }
 
 .hide {
