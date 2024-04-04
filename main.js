@@ -132,3 +132,34 @@ function switchLang(elem) {
 //     var dropdownContent = document.getElementById("dropdownContent");
 //     dropdownContent.classList.remove("show");
 // }
+
+// -----------------header-input----------------------
+
+let inputSearchCity = document.getElementById("find");
+let inputSearchQuery = document.getElementById("where");
+
+inputSearchCity.onfocus = function () {
+  if (inputSearchCity.value === "Рестораны") {
+    inputSearchCity.value = "";
+  }
+};
+
+inputSearchCity.onblur = function () {
+  if (inputSearchCity.value === "") {
+    inputSearchCity.value = "Рестораны";
+  }
+};
+
+inputSearchQuery.onfocus = function () {
+  if (inputSearchQuery.value === "Москва") {
+    inputSearchQuery.value = "";
+  }
+};
+
+inputSearchQuery.onblur = function () {
+  if (inputSearchQuery.value === "") {
+    inputSearchQuery.value = "Москва";
+  }
+};
+
+// -----------------header-input END----------------------

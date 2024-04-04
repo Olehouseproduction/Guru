@@ -1,6 +1,9 @@
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 a {
@@ -27,6 +30,90 @@ html {
   justify-content: space-between;
   align-items: center;
   padding: 1.8rem 0 2rem 0;
+}
+
+.search-lang-bar {
+  display: flex;
+  gap: 20px;
+}
+// -----------------header-input----------------------
+form {
+  display: flex;
+  // height: 40px;
+}
+
+.text-field__label {
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 40px;
+}
+
+.input-container {
+  position: relative;
+}
+
+input[type="text"] {
+  font-family: inherit;
+  font-size: 17px;
+  line-height: inherit;
+  margin: 0;
+}
+
+.search-query .text-field__input {
+  padding-left: 76px;
+  width: 312px;
+}
+
+.input-container .text-field__label {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: all 0.2s;
+}
+
+.search-city .text-field__input {
+  padding-left: 50px;
+  width: 220px;
+}
+
+.text-field__input {
+  display: block;
+  width: 100%;
+  height: calc(2.25rem + 2px);
+  padding: 20px 0 20px 76px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  border: 1px solid #bdbdbd;
+  /* border-right: none; */
+  border-radius: 1.2rem;
+  // border-radius: 0.1rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.search-city .text-field__input {
+  border-left: none;
+  border-radius: inherit;
+}
+
+.search-query .text-field__input {
+  border-top-right-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+
+.search-button {
+  background-color: #754040;
+  width: 50px;
+  border-radius: 0px 1.2rem 1.2rem 0px;
+  // border-radius: 0px 0.1rem 0.1rem 0px;
+  border: none;
+  /* padding: 9.48px 14px; */
+  cursor: pointer;
 }
 
 // --------------dropdown-----------------------

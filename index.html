@@ -15,19 +15,37 @@
     <div class="container">
       <header class="header inner">
         <a href="#"><img src="img/header/logo.svg" alt="Logo"></a>
-        <form class="search-form"></form>
+        <div class="search-lang-bar">
 
-        <div class="wrapper-language" id="wrapper-language-js">
-          <span class="active-lang flag-russian" id="active-lang-js"></span>
+          <form class="search-form" onsubmit="event.preventDefault(); ">
 
-          <div class="dropdown" id="dropdown-js">
-            <span class="close-icon-wrapper"></span>
-            <a href="#" class="lang flag-russian"> Русский</a>
-            <a href="#" class="lang flag-english"> English</a>
-            <a href="#" class="lang flag-espanol"> Espanol</a>
+            <div class="input-container search-query">
+              <label class="text-field__label" for="find">Найти: </label>
+              <input class="text-field__input" type="text" id="find" name="find" value="Рестораны"
+                placeholder="Рестораны">
+            </div>
+
+            <div class="input-container search-city">
+              <label class="text-field__label" for="where">Где: </label>
+              <input class="text-field__input" type="text" id="where" name="where" value="Москва" placeholder="Москва">
+
+            </div>
+            <button type="submit" class="search-button">
+              <img class="icon-search" src="img/header/search.svg" alt="Найти">
+            </button>
+          </form>
+
+          <div class="wrapper-language" id="wrapper-language-js">
+            <span class="active-lang flag-russian" id="active-lang-js"></span>
+
+            <div class="dropdown" id="dropdown-js">
+              <span class="close-icon-wrapper"></span>
+              <a href="#" class="lang flag-russian"> Русский</a>
+              <a href="#" class="lang flag-english"> English</a>
+              <a href="#" class="lang flag-espanol"> Espanol</a>
+            </div>
           </div>
         </div>
-
       </header>
 
       <div class="breadcrumb">
