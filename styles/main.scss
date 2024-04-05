@@ -34,9 +34,12 @@ html {
 
 .search-lang-bar {
   display: flex;
+  align-items: center;
   gap: 20px;
 }
+
 // -----------------header-input----------------------
+
 form {
   display: flex;
   // height: 40px;
@@ -120,6 +123,8 @@ input[type="text"] {
 
 .wrapper-language {
   position: relative;
+  z-index: 5000;
+  right: 7px;
 }
 
 .active-lang {
@@ -127,17 +132,17 @@ input[type="text"] {
   width: 32px;
   height: 32px;
   cursor: pointer;
-
   position: static;
   background-size: 23px;
 }
 
 .dropdown {
-  top: 56px;
+  top: -7px;
+  // top: 56px;
   position: absolute;
   background-color: #fff;
   right: 0px;
-  z-index: 10001;
+  z-index: 100;
   padding: 18px 18px 4px;
   min-width: 165px;
   border-radius: 0 0 10px 10px;
@@ -146,12 +151,15 @@ input[type="text"] {
   box-sizing: border-box;
   opacity: 0;
   transition: opacity 0.2s ease-in;
+  // display: none;
 }
 
 .show {
   display: flex;
   opacity: 1;
+  z-index: 6000;
   flex-direction: column;
+  transition: opacity 5s ease-in;
 }
 
 .hide {
@@ -217,10 +225,9 @@ input[type="text"] {
   background-color: $dark-grey;
   color: #ffffff;
   display: flex;
-
   font-size: 1.4rem;
   font-family: "Roboto Regular";
-  line-height: 16px;
+  line-height: 1.6rem;
   padding: 1rem 0 1rem 0rem;
 
   li:nth-child(odd):not(:last-child) {
@@ -258,6 +265,9 @@ input[type="text"] {
   color: #000000;
   opacity: 0.6;
   transition: all 0.3s ease-in;
+  padding: 10px 0;
+  cursor: pointer;
+  z-index: 101;
   &:hover {
     opacity: 1;
     transition: all 0.3s ease-in;
@@ -268,12 +278,13 @@ input[type="text"] {
 
 .slider-item {
   width: 28.5rem;
+  position: relative;
 }
 
 .card-image {
   border-radius: 20px;
   margin: 0 0 0.6rem 0;
-  position: relative;
+  max-width: 100%;
 }
 
 .open-until {
@@ -283,9 +294,9 @@ input[type="text"] {
   background: rgba(47, 34, 36, 0.16);
   backdrop-filter: blur(24px);
   border-radius: 1.6rem;
-  position: relative;
-  left: 9px;
-  bottom: 192px;
+  position: absolute;
+  left: 0.9rem;
+  bottom: 23.2rem;
   font-family: "Roboto Bold";
   font-weight: 700;
   font-size: 13px;
@@ -420,3 +431,75 @@ input[type="text"] {
     color: $taupe;
   }
 }
+
+//  ----------slider---------------
+.swiper {
+  // width: 122.9rem;
+  // height: 27.8rem;
+  height: 30rem;
+  width: 122.9rem;
+}
+
+// // -----рукописные стрелки------
+.left,
+.right {
+  position: relative;
+  display: inline-flex;
+  background-color: #fff;
+  min-width: 45px;
+  min-height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  // top: 30%;
+  position: absolute;
+  top: 25%;
+  z-index: 2;
+}
+
+.right {
+  right: 0%;
+}
+
+.left::before,
+.right::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+  margin-left: -4px;
+}
+
+.left::before {
+  border-top: 3px solid #616161;
+  border-left: 3px solid #616161;
+  transform: translateY(-50%) rotate(-45deg);
+  left: 50%;
+}
+
+.right::before {
+  border-top: 3px solid #616161;
+  border-right: 3px solid #616161;
+  transform: translateY(-50%) rotate(45deg);
+  right: 50%;
+  margin-right: -4px;
+}
+
+.left:hover::before,
+.right:hover::before {
+  border-color: #a72536;
+  transition: all 0.3s ease;
+}
+
+// .swiper-button-prev::after,
+// .swiper-button-next::after {
+//   color: #fff;
+//   content: "";
+// }
+
+// .swiper-button-prev,
+// .swiper-button-next {
+//   top: 30%;
+// }

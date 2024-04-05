@@ -7,7 +7,7 @@ export default defineConfig({
         additionalData: `
             @import "./styles/mixin.scss";
             @import "./styles/variables.scss";
-            @import "./styles/fonts.css";
+            @import "./styles/fonts.scss";
         `,
       },
     },

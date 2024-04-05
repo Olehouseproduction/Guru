@@ -1,4 +1,25 @@
 import "./styles/main.scss";
+import Swiper from "swiper";
+import { Navigation } from "swiper/modules";
+import "swiper/scss";
+import "swiper/scss/navigation";
+
+// -----------------slider----------------------
+
+new Swiper(".swiper", {
+  modules: [Navigation],
+  // Опции слайдера
+  direction: "horizontal",
+  slidesPerView: 4,
+  loop: true,
+  // Navigation arrows
+  navigation: {
+    nextEl: ".right",
+    prevEl: ".left",
+  },
+});
+
+// -----------------slider-END---------------------
 // //---------------------переключения языка---------------------------//
 
 // // Закрыть раскрывающийся список, если пользователь щелкнет за его пределами.
@@ -161,5 +182,3 @@ inputSearchQuery.onblur = function () {
     inputSearchQuery.value = "Москва";
   }
 };
-
-// -----------------header-input END----------------------
