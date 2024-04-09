@@ -35,10 +35,41 @@ html {
 .search-lang-bar {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 20px;
 }
 
 // -----------------header-input----------------------
+
+.border {
+  background-color: #cfcfcf;
+  width: 1px;
+  height: 28px;
+  margin: 1.2% 0; /* Отступы сверху и снизу */
+  border-bottom: 1px solid #cfcfcf;
+
+  // &::after {
+  //   content: "";
+  //   width: 1px;
+  //   height: 100%;
+  //   position: absolute;
+  //   height: 20px;
+  //   background-color: black;
+  // }
+}
+
+.search-city {
+  position: relative;
+}
+
+.search-city::before {
+  content: "";
+  width: 1px;
+  height: 28px;
+  position: absolute;
+  background-color: #cfcfcf;
+  margin: 3.2% 0;
+}
 
 form {
   display: flex;
@@ -60,6 +91,19 @@ input[type="text"] {
   font-size: 17px;
   line-height: inherit;
   margin: 0;
+}
+
+.text-field__input {
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    top: 0;
+    right: 0;
+    color: #cfcfcf;
+    width: 1px;
+    height: 28px;
+  }
 }
 
 .search-query .text-field__input {
@@ -105,17 +149,27 @@ input[type="text"] {
 }
 
 .search-query .text-field__input {
+  border-right: none;
   border-top-right-radius: inherit;
   border-bottom-right-radius: inherit;
+  &::after {
+    content: "|";
+    position: absolute; /* Позиционируем псевдоэлемент абсолютно относительно его родительского элемента */
+    top: 50%; /* Размещаем псевдоэлемент по вертикали по центру */
+    transform: translateY(
+      -50%
+    ); /* Корректируем положение псевдоэлемента по вертикали */
+    right: 0; /* Размещаем псевдоэлемент справа */
+    color: #000; /* Задаем цвет символа */
+    font-size: 16px; /* Задаем размер символа */
+  }
 }
 
 .search-button {
   background-color: #754040;
   width: 50px;
   border-radius: 0px 1.2rem 1.2rem 0px;
-  // border-radius: 0px 0.1rem 0.1rem 0px;
   border: none;
-  /* padding: 9.48px 14px; */
   cursor: pointer;
 }
 
@@ -123,7 +177,7 @@ input[type="text"] {
 
 .wrapper-language {
   position: relative;
-  z-index: 5000;
+  z-index: 5;
   right: 7px;
 }
 
@@ -134,11 +188,11 @@ input[type="text"] {
   cursor: pointer;
   position: static;
   background-size: 23px;
+  z-index: 6;
 }
 
 .dropdown {
   top: -7px;
-  // top: 56px;
   position: absolute;
   background-color: #fff;
   right: 0px;
@@ -150,16 +204,15 @@ input[type="text"] {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   opacity: 0;
-  transition: opacity 0.2s ease-in;
-  // display: none;
+  transition: opacity 0.3s ease-in;
 }
 
 .show {
   display: flex;
   opacity: 1;
-  z-index: 6000;
+  z-index: 6;
   flex-direction: column;
-  transition: opacity 5s ease-in;
+  transition: opacity 0.3s ease-in;
 }
 
 .hide {
@@ -443,16 +496,14 @@ input[type="text"] {
 // // -----рукописные стрелки------
 .left,
 .right {
-  position: relative;
   display: inline-flex;
   background-color: #fff;
   min-width: 45px;
   min-height: 45px;
   border-radius: 50%;
   cursor: pointer;
-  // top: 30%;
   position: absolute;
-  top: 25%;
+  top: 40%;
   z-index: 2;
 }
 
@@ -467,20 +518,18 @@ input[type="text"] {
   height: 14px;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
   transition: all 0.3s ease;
-  margin-left: -4px;
+  border-top: 3px solid #616161;
 }
 
 .left::before {
-  border-top: 3px solid #616161;
   border-left: 3px solid #616161;
   transform: translateY(-50%) rotate(-45deg);
   left: 50%;
+  margin-left: -4px;
 }
 
 .right::before {
-  border-top: 3px solid #616161;
   border-right: 3px solid #616161;
   transform: translateY(-50%) rotate(45deg);
   right: 50%;

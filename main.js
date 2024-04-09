@@ -42,70 +42,101 @@ new Swiper(".swiper", {
 //   showDropdown();
 //   console.log("выпадающее меню открылось");
 // // });
-let myDropdown = document.getElementById("dropdown-js");
-let activeLang = document.getElementById("active-lang-js");
 
-window.onclick = function (e) {
-  console.log(e.target);
+// Глобальные переменные
+const myDropdown = document.getElementById("dropdown-js");
+const activeLang = document.getElementById("active-lang-js");
+const languages = document.querySelectorAll(".lang");
+
+function workWithDropDown(e) {
+  // Функция скрытия dropdown (Через метод)
+  const hideDropdown = () => {
+    myDropdown.classList.remove("show");
+    setTimeout(() => {
+      myDropdown.classList.add("hide");
+    }, 300);
+  };
+  // e.target - цель ивента (первое, что попалось под клик)
+  // console.log(e.target);
+
   if (e.target.matches("#active-lang-js")) {
     console.log("Клик на флажок");
     if (myDropdown.classList.contains("show")) {
-      myDropdown.classList.remove("show");
+      hideDropdown();
     } else {
-      myDropdown.classList.add("show");
+      myDropdown.classList.remove("hide");
+      setTimeout(() => {
+        myDropdown.classList.add("show");
+      }, 10);
     }
-  } else if (!e.target.matches(".dropdown")) {
+  } else if (
+    !e.target.matches(".dropdown") &&
+    myDropdown.classList.contains("show")
+  ) {
     console.log("Клик вне флажка");
-    if (myDropdown.classList.contains("show")) {
-      myDropdown.classList.remove("show");
+    hideDropdown();
+  }
+}
+
+function workWithLangs() {
+  /** Отобразить элементы выбора языка */
+  function showLangElems() {
+    languages.forEach((elements) => {
+      elements.classList.remove("hide");
+    });
+  }
+  /**
+   * Возвращается выбранный язык
+   * @param {Element} elem Контейнер с языками
+   * @returns {string|undefined} Возвращает выбор нужного языка
+   */
+  function langClassName(elem) {
+    let classArray = Array.from(elem.classList);
+    console.log(classArray);
+    const lang = classArray.find((_class) => {
+      const checkClass = _class.includes("flag");
+      console.log(checkClass);
+      return checkClass;
+    });
+    return lang;
+  }
+
+  function switchLang(elem) {
+    const languageClassName = langClassName(elem);
+    const titleLangClassName = langClassName(activeLang);
+
+    if (languageClassName != titleLangClassName) {
+      console.log("Смена языка", titleLangClassName, languageClassName);
+      activeLang.classList.remove(titleLangClassName);
+      activeLang.classList.add(languageClassName);
     }
   }
-};
 
-let languages = document.querySelectorAll(".lang");
+  function displayLang(elem) {
+    const languageClassName = langClassName(elem);
+    console.log(languageClassName);
+    if (activeLang.classList.contains(languageClassName)) {
+      elem.classList.add("hide");
+    }
+  }
 
-languages.forEach((elem) => {
-  displayLang(elem);
+  // Цикл
 
-  elem.addEventListener("click", () => {
-    languages.forEach((vari) => {
-      vari.classList.remove("hide");
-    });
+  languages.forEach((elem) => {
+    // elem - каждый контейнер, связанный с языком
 
-    switchLang(elem);
     displayLang(elem);
+    elem.addEventListener("click", () => {
+      showLangElems();
+      switchLang(elem);
+      displayLang(elem);
+    });
   });
-});
-
-function langClassName(elem) {
-  let classArray = Array.from(elem.classList);
-  console.log(classArray);
-  const lang = classArray.find((_class) => {
-    const checkClass = _class.includes("flag");
-    console.log(checkClass);
-    return checkClass;
-  });
-  return lang;
 }
 
-function displayLang(elem) {
-  const languageClassName = langClassName(elem);
-  console.log(languageClassName);
-  if (activeLang.classList.contains(languageClassName)) {
-    elem.classList.add("hide");
-  }
-}
-
-function switchLang(elem) {
-  const languageClassName = langClassName(elem);
-  const titleLangClassName = langClassName(activeLang);
-
-  if (languageClassName != titleLangClassName) {
-    console.log("Смена языка", titleLangClassName, languageClassName);
-    activeLang.classList.remove(titleLangClassName);
-    activeLang.classList.add(languageClassName);
-  }
-}
+//  Вызов основных функций
+window.onclick = workWithDropDown;
+workWithLangs();
 
 //Универсальный метод, который возвращает название класса, которое содержит слово flag
 
