@@ -6,17 +6,42 @@ import "swiper/scss/navigation";
 
 // -----------------slider----------------------
 
-new Swiper(".swiper", {
+window.test = new Swiper(".swiper", {
   modules: [Navigation],
-  // Опции слайдера
   direction: "horizontal",
-  slidesPerView: 4,
+  slidesPerView: 1,
+  spaceBetween: 21,
   loop: true,
-  // Navigation arrows
+
   navigation: {
     nextEl: ".right",
     prevEl: ".left",
   },
+
+  breakpoints: {
+    730: {
+      slidesPerView: 2,
+      spaceBetween: 10,
+    },
+    //  max 1024
+    1024: {
+      slidesPerView: 3,
+      // spaceBetween: 21,
+    },
+
+    1288: {
+      slidesPerView: 4,
+      // spaceBetween: 21,
+    },
+    // 1288: {
+    //   slidesPerView: 3,
+    //   // spaceBetween: 21,
+    // },
+  },
+});
+
+addEventListener("resize", () => {
+  window.test.update();
 });
 
 // -----------------slider-END---------------------

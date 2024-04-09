@@ -21,7 +21,8 @@ html {
 }
 
 .inner {
-  width: 122.9rem;
+  // width: 122.9rem;
+  max-width: 122.9rem;
   margin: 0 auto;
 }
 
@@ -29,8 +30,18 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.8rem 0 2rem 0;
+  padding: 1.8rem 10px 2rem 10px;
 }
+
+// -----------------скрытые классы для мобильной версии----------------------
+.logo-2 {
+  display: none;
+}
+
+.text-currency-1 {
+  display: none;
+}
+// -----------------скрытые классы для мобильной версии END----------------------
 
 .search-lang-bar {
   display: flex;
@@ -93,18 +104,18 @@ input[type="text"] {
   margin: 0;
 }
 
-.text-field__input {
-  &::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    top: 0;
-    right: 0;
-    color: #cfcfcf;
-    width: 1px;
-    height: 28px;
-  }
-}
+// .text-field__input {
+//   &::after {
+//     content: "";
+//     position: absolute;
+//     top: 50%;
+//     top: 0;
+//     right: 0;
+//     color: #cfcfcf;
+//     width: 1px;
+//     height: 28px;
+//   }
+// }
 
 .search-query .text-field__input {
   padding-left: 76px;
@@ -152,17 +163,15 @@ input[type="text"] {
   border-right: none;
   border-top-right-radius: inherit;
   border-bottom-right-radius: inherit;
-  &::after {
-    content: "|";
-    position: absolute; /* Позиционируем псевдоэлемент абсолютно относительно его родительского элемента */
-    top: 50%; /* Размещаем псевдоэлемент по вертикали по центру */
-    transform: translateY(
-      -50%
-    ); /* Корректируем положение псевдоэлемента по вертикали */
-    right: 0; /* Размещаем псевдоэлемент справа */
-    color: #000; /* Задаем цвет символа */
-    font-size: 16px; /* Задаем размер символа */
-  }
+  // &::after {
+  //   content: "|";
+  //   position: absolute;
+  //   top: 50%;
+  //   transform: translateY(-50%);
+  //   right: 0;
+  //   color: #000;
+  //   font-size: 16px;
+  // }
 }
 
 .search-button {
@@ -255,7 +264,7 @@ input[type="text"] {
 }
 
 .flag-russian {
-  background: url("/img/header/ru.svg") no-repeat left center;
+  background: url("/img/header/ru.jpg") no-repeat left center;
 }
 
 .flag-english {
@@ -281,7 +290,8 @@ input[type="text"] {
   font-size: 1.4rem;
   font-family: "Roboto Regular";
   line-height: 1.6rem;
-  padding: 1rem 0 1rem 0rem;
+  // padding: 1rem 0 1rem 0rem;
+  padding: 1rem 2rem 1rem 2rem;
 
   li:nth-child(odd):not(:last-child) {
     margin-right: 0.56rem;
@@ -294,15 +304,18 @@ input[type="text"] {
 // -------------------------main----------------------------------
 
 .main {
-  padding: 3rem 0 5rem 0;
+  // padding: 3rem 0 5rem 0;
+  padding: 3rem 2rem 5rem 2rem;
   background-color: #f6f6f6;
 }
 
 .main-title-wrapper {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  // align-items: center;
+  align-items: baseline;
   margin: 0 0 1.05rem 0;
+  width: 98%;
 }
 
 .main-title {
@@ -318,7 +331,8 @@ input[type="text"] {
   color: #000000;
   opacity: 0.6;
   transition: all 0.3s ease-in;
-  padding: 10px 0;
+  // padding: 10px 0;
+  // padding: 0;
   cursor: pointer;
   z-index: 101;
   &:hover {
@@ -329,7 +343,7 @@ input[type="text"] {
 
 // ---------------slider------------------------------
 
-.slider-item {
+.card {
   width: 28.5rem;
   position: relative;
 }
@@ -493,7 +507,7 @@ input[type="text"] {
   width: 122.9rem;
 }
 
-// // -----рукописные стрелки------
+// -----рукописные стрелки----------
 .left,
 .right {
   display: inline-flex;
@@ -542,13 +556,131 @@ input[type="text"] {
   transition: all 0.3s ease;
 }
 
-// .swiper-button-prev::after,
-// .swiper-button-next::after {
-//   color: #fff;
-//   content: "";
-// }
+//  ----------media-queries-------------
 
-// .swiper-button-prev,
-// .swiper-button-next {
-//   top: 30%;
-// }
+@media (max-width: 1364px) {
+  .inner {
+    width: 96%;
+  }
+}
+
+@media (max-width: 940px) {
+  .header {
+    gap: 1.2rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .search-lang-bar {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 668px) {
+  .wrapper-language {
+    right: 13px;
+  }
+  .text-field__input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 644px) {
+  .search-query {
+    .text-field__input {
+      width: 200px;
+    }
+  }
+  .search-city {
+    .text-field__input {
+      width: 180px;
+    }
+  }
+}
+
+@media (max-width: 490px) {
+  .search-form,
+  .breadcrumb,
+  .all-restaurants,
+  .card-title-rating-count,
+  .text-distance {
+    display: none;
+  }
+
+  .right-column .text-time {
+    display: none;
+  }
+
+  .header {
+    flex-direction: row;
+    justify-content: center;
+    padding: 1.4rem 1rem 1.4rem 1rem;
+    align-items: center;
+  }
+  .search-lang-bar {
+    justify-content: end;
+    // width: auto;
+    position: absolute;
+    right: 0;
+  }
+
+  .left-column {
+    .text-price,
+    .text-currency ::after {
+      display: none;
+    }
+    flex-direction: column-reverse;
+  }
+
+  .card-image {
+    width: 90vw;
+  }
+  .logo-1 {
+    display: none;
+  }
+  .logo-2 {
+    display: block;
+  }
+
+  .text-currency-1 {
+    color: #5b484a;
+    display: flex;
+    align-items: center;
+    span {
+      color: #ab9c9e;
+      display: flex;
+      align-items: center;
+      margin: 0 0 0 0.3rem;
+    }
+  }
+
+  .wrapper-language {
+    margin: 0 0 5px 0;
+  }
+
+  .open-until {
+    bottom: 21.2rem;
+  }
+}
+
+@media (max-width: 434px) {
+  .text-field__label {
+    @media (max-width: 434px) {
+      left: 10px;
+    }
+  }
+
+  .text-field__input,
+  .text-field__label {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 400px) {
+  .searchform {
+    width: 83%;
+  }
+  .main-title {
+    font-size: 25px;
+  }
+}
