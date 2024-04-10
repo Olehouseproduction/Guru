@@ -3,6 +3,7 @@
 *::after {
   margin: 0;
   padding: 0;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -21,19 +22,20 @@ html {
 }
 
 .inner {
-  // width: 122.9rem;
   max-width: 122.9rem;
   margin: 0 auto;
 }
 
 .header {
   display: flex;
+  -webkit-box-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: center;
   align-items: center;
   padding: 1.8rem 10px 2rem 10px;
 }
 
-// -----------------скрытые классы для мобильной версии----------------------
+// -----------------скрытые классы для отображения в мобильной версии----------------------
 .logo-2 {
   display: none;
 }
@@ -56,17 +58,8 @@ html {
   background-color: #cfcfcf;
   width: 1px;
   height: 28px;
-  margin: 1.2% 0; /* Отступы сверху и снизу */
+  margin: 1.2% 0;
   border-bottom: 1px solid #cfcfcf;
-
-  // &::after {
-  //   content: "";
-  //   width: 1px;
-  //   height: 100%;
-  //   position: absolute;
-  //   height: 20px;
-  //   background-color: black;
-  // }
 }
 
 .search-city {
@@ -84,7 +77,6 @@ html {
 
 form {
   display: flex;
-  // height: 40px;
 }
 
 .text-field__label {
@@ -104,19 +96,6 @@ input[type="text"] {
   margin: 0;
 }
 
-// .text-field__input {
-//   &::after {
-//     content: "";
-//     position: absolute;
-//     top: 50%;
-//     top: 0;
-//     right: 0;
-//     color: #cfcfcf;
-//     width: 1px;
-//     height: 28px;
-//   }
-// }
-
 .search-query .text-field__input {
   padding-left: 76px;
   width: 312px;
@@ -128,6 +107,7 @@ input[type="text"] {
   top: 50%;
   transform: translateY(-50%);
   pointer-events: none;
+  -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
 
@@ -148,9 +128,9 @@ input[type="text"] {
   color: #212529;
   background-color: #fff;
   border: 1px solid #bdbdbd;
-  /* border-right: none; */
   border-radius: 1.2rem;
-  // border-radius: 0.1rem;
+  -webkit-transition: border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -163,15 +143,6 @@ input[type="text"] {
   border-right: none;
   border-top-right-radius: inherit;
   border-bottom-right-radius: inherit;
-  // &::after {
-  //   content: "|";
-  //   position: absolute;
-  //   top: 50%;
-  //   transform: translateY(-50%);
-  //   right: 0;
-  //   color: #000;
-  //   font-size: 16px;
-  // }
 }
 
 .search-button {
@@ -213,6 +184,7 @@ input[type="text"] {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in;
   transition: opacity 0.3s ease-in;
 }
 
@@ -221,6 +193,7 @@ input[type="text"] {
   opacity: 1;
   z-index: 6;
   flex-direction: column;
+  -webkit-transition: opacity 0.3s ease-in;
   transition: opacity 0.3s ease-in;
 }
 
@@ -290,7 +263,6 @@ input[type="text"] {
   font-size: 1.4rem;
   font-family: "Roboto Regular";
   line-height: 1.6rem;
-  // padding: 1rem 0 1rem 0rem;
   padding: 1rem 2rem 1rem 2rem;
 
   li:nth-child(odd):not(:last-child) {
@@ -304,7 +276,6 @@ input[type="text"] {
 // -------------------------main----------------------------------
 
 .main {
-  // padding: 3rem 0 5rem 0;
   padding: 3rem 2rem 5rem 2rem;
   background-color: #f6f6f6;
 }
@@ -312,7 +283,6 @@ input[type="text"] {
 .main-title-wrapper {
   display: flex;
   justify-content: space-between;
-  // align-items: center;
   align-items: baseline;
   margin: 0 0 1.05rem 0;
   width: 98%;
@@ -330,13 +300,14 @@ input[type="text"] {
   line-height: 18px;
   color: #000000;
   opacity: 0.6;
+  -webkit-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
   // padding: 10px 0;
-  // padding: 0;
   cursor: pointer;
   z-index: 101;
   &:hover {
     opacity: 1;
+    -webkit-transition: all 0.3s ease-in;
     transition: all 0.3s ease-in;
   }
 }
@@ -348,26 +319,12 @@ input[type="text"] {
   position: relative;
 }
 
-.frame-image {
-  display: inline-block;
-  border-radius: 10%;
-  overflow: hidden;
-  width: 28.5rem;
-  height: 191px;
-}
-
-.card-image {
-  border-radius: 20px;
-  margin: 0 0 0.6rem 0;
-  max-width: 100%;
-}
-
 .open-until {
   width: 13.6rem;
-  // padding: 0.8rem 1.2rem;
   padding: 0.8rem 0;
   background: rgba(47, 34, 36, 0.16);
   backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border-radius: 1.6rem;
   position: absolute;
   left: 0.9rem;
@@ -515,7 +472,7 @@ input[type="text"] {
   width: 122.9rem;
 }
 
-// -----рукописные стрелки----------
+// ---- стрелки навигации----------
 .left,
 .right {
   display: inline-flex;
@@ -540,6 +497,7 @@ input[type="text"] {
   height: 14px;
   position: absolute;
   top: 50%;
+  -webkit-transition: all 0.3s ease-in;
   transition: all 0.3s ease;
   border-top: 3px solid #616161;
 }
@@ -561,6 +519,7 @@ input[type="text"] {
 .left:hover::before,
 .right:hover::before {
   border-color: #a72536;
+  -webkit-transition: all 0.3s ease-in;
   transition: all 0.3s ease;
 }
 
