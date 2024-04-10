@@ -6,19 +6,25 @@ import "swiper/scss/navigation";
 
 // -----------------slider----------------------
 
-window.test = new Swiper(".swiper", {
-  modules: [Navigation],
-  direction: "horizontal",
-  slidesPerView: 1,
-  spaceBetween: 21,
+const swiper = new Swiper(".swiper", {
+  modules: [Navigation], 
+  direction: "horizontal", //направление горизонтальное
+  slidesPerView: 1, // видим один слайдер
+  spaceBetween: 21, // расстояние между слайдерами px
   loop: true,
+   // бесконечность
 
   navigation: {
     nextEl: ".right",
     prevEl: ".left",
   },
 
+  // точки скипа
   breakpoints: {
+    // 0: { 
+    //   width: 500,
+    //   slidesPerView: 1,
+    // }, 
     730: {
       slidesPerView: 2,
       spaceBetween: 10,
@@ -41,7 +47,7 @@ window.test = new Swiper(".swiper", {
 });
 
 addEventListener("resize", () => {
-  window.test.update();
+  swiper.update();
 });
 
 // -----------------slider-END---------------------
