@@ -348,6 +348,14 @@ input[type="text"] {
   position: relative;
 }
 
+.frame-image {
+  display: inline-block;
+  border-radius: 10%;
+  overflow: hidden;
+  width: 28.5rem;
+  height: 191px;
+}
+
 .card-image {
   border-radius: 20px;
   margin: 0 0 0.6rem 0;
@@ -363,7 +371,7 @@ input[type="text"] {
   border-radius: 1.6rem;
   position: absolute;
   left: 0.9rem;
-  bottom: 23.2rem;
+  bottom: 22.5rem;
   font-family: "Roboto Bold";
   font-weight: 700;
   font-size: 13px;
