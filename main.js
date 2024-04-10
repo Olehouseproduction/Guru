@@ -7,12 +7,11 @@ import "swiper/scss/navigation";
 // -----------------slider----------------------
 
 const swiper = new Swiper(".swiper", {
-  modules: [Navigation], 
+  modules: [Navigation],
   direction: "horizontal", //направление горизонтальное
   slidesPerView: 1, // видим один слайдер
   spaceBetween: 21, // расстояние между слайдерами px
-  loop: true,
-   // бесконечность
+  loop: true, // бесконечность
 
   navigation: {
     nextEl: ".right",
@@ -221,26 +220,74 @@ workWithLangs();
 let inputSearchCity = document.getElementById("find");
 let inputSearchQuery = document.getElementById("where");
 
-inputSearchCity.onfocus = function () {
-  if (inputSearchCity.value === "Рестораны") {
-    inputSearchCity.value = "";
-  }
-};
+// inputSearchCity.onfocus = function () {
+//   if (inputSearchCity.value === "Рестораны") {
+//     inputSearchCity.value = "";
+//   }
+// };
 
-inputSearchCity.onblur = function () {
-  if (inputSearchCity.value === "") {
-    inputSearchCity.value = "Рестораны";
-  }
-};
+// inputSearchCity.onblur = function () {
+//   if (inputSearchCity.value === "") {
+//     inputSearchCity.value = "Рестораны";
+//   }
+// };
 
-inputSearchQuery.onfocus = function () {
-  if (inputSearchQuery.value === "Москва") {
-    inputSearchQuery.value = "";
-  }
-};
+// inputSearchQuery.onfocus = function () {
+//   if (inputSearchQuery.value === "Москва") {
+//     inputSearchQuery.value = "";
+//   }
+// };
 
-inputSearchQuery.onblur = function () {
-  if (inputSearchQuery.value === "") {
-    inputSearchQuery.value = "Москва";
-  }
-};
+// inputSearchQuery.onblur = function () {
+//   if (inputSearchQuery.value === "") {
+//     inputSearchQuery.value = "Москва";
+//   }
+// };
+
+/**
+ * 
+ * @param {Element|null} elem element через которого проходит проверка
+ * @param {string} value то значение с которым сравнивается значение элемента
+ * @param {string} nextValue то значение, которое мы применяем к значению элемента после сравнения
+ */
+function switchInput(elem, value, nextValue) {
+  if (elem.value === value) elem.value = nextValue
+}
+
+inputSearchCity.onfocus = function () { switchInput(this, "Рестораны", "") }
+inputSearchCity.onblur = function () { switchInput(this, "", "Рестораны") }
+inputSearchQuery.onfocus = function () { switchInput(this, "Москва", "") }
+inputSearchQuery.onblur = function () { switchInput(this, "", "Москва") }
+
+
+// ПРОСТАЯ РАБОТА CALLBACK
+// document.addEventListener("click", () => {
+
+// })
+
+// const obj = {
+//   addEventListener: function (eventName, callback) {
+//     switch (eventName) {
+//       case "click": {
+//         console.log("compiled started")
+//         setTimeout(() => {
+//           console.log("compiled ready")
+//           callback()
+//         }, 2000)
+//       }
+//         break;
+//       default: console.error("not correct event name"); break;
+//     }
+//   }
+// }
+
+// obj.addEventListener("click", ()=> {
+//   setTimeout(()=> {
+//     console.log("I M CLICKED")
+//   })
+// })
+
+// obj.addEventListener("done", () => {
+//   console.log("am i ready")
+// })
+// /**

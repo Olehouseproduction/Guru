@@ -237,15 +237,15 @@ input[type="text"] {
 }
 
 .flag-russian {
-  background: url("/img/header/ru.jpg") no-repeat left center;
+  background: url("img/header/ru.jpg") no-repeat left center;
 }
 
 .flag-english {
-  background: url("/img/header/en.svg") no-repeat left center;
+  background: url("img/header/en.svg") no-repeat left center;
 }
 
 .flag-espanol {
-  background: url("/img/header/es.svg") no-repeat left center;
+  background: url("img/header/es.svg") no-repeat left center;
 }
 
 // --------------dropdown END-----------------------
@@ -370,7 +370,7 @@ input[type="text"] {
     margin: 0 4px 0 0;
     width: 19px;
     height: 17px;
-    background: url("/img/card/star.svg") left center no-repeat;
+    background: url("img/card/star.svg") left center no-repeat;
   }
 
   .card-title-rating-count {
@@ -407,7 +407,7 @@ input[type="text"] {
     align-items: center;
 
     &::before {
-      content: url("/img/card/restaurant_menu.svg");
+      content: url("img/card/restaurant_menu.svg");
       margin: 0 0.8rem 0 0;
     }
   }
@@ -437,7 +437,7 @@ input[type="text"] {
     display: flex;
     align-items: center;
     &::before {
-      content: url("/img/card/receipt_long.svg");
+      content: url("img/card/receipt_long.svg");
       margin: 0 0.4rem 0 0;
     }
   }
@@ -455,7 +455,7 @@ input[type="text"] {
     display: flex;
     align-items: center;
     &::before {
-      content: url("/img/card/directions_car.svg");
+      content: url("img/card/directions_car.svg");
       margin: 0 0.4rem 0 0;
     }
   }
