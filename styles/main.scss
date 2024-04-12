@@ -19,12 +19,14 @@ ul {
 html {
   font-size: 10px;
   font-family: "Roboto Regular", sans-serif;
+  // overflow-y: hidden;
 }
 
 html,
 body {
   height: 100%;
   margin: 0;
+  background-color: #f6f6f6;
 }
 
 .container {
@@ -36,6 +38,10 @@ body {
 .inner {
   max-width: 122.9rem;
   margin: 0 auto;
+}
+
+.header-main {
+  background-color: #fff;
 }
 
 .header {
@@ -68,6 +74,7 @@ body {
 
 .border {
   background-color: #cfcfcf;
+  // вынести в перемен
   width: 1px;
   height: 28px;
   margin: 1.2% 0;
@@ -291,7 +298,8 @@ input[type="text"] {
 
 .main {
   padding: 3rem 2rem 3rem 2rem;
-  background-color: #f6f6f6;
+  // background-color: #f6f6f6;
+  // height: 100vh;
   // height: calc(
   //   100vh - 128px
   // ); /* Высота экрана минус высота заголовка и хлебных крошек */
@@ -727,4 +735,11 @@ input[type="text"] {
     padding: 1rem 0.5rem 1rem 0.5rem;
     height: 90vh;
   }
+}
+
+.test {
+  width: 100%;
+  height: 30%;
+  background-color: #a72536;
+  position: absolute;
 }

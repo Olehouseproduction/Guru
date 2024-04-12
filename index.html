@@ -14,39 +14,45 @@
 <body>
   <div id="app">
     <div class="container">
-      <header class="header inner">
-        <a href="#" class="logo logo-1"><img src="img/header/logo.svg" alt="Logo"></a>
-        <a href="#" class="logo logo-2"><img src="img/header/logo-mobile.svg" alt="Logo"></a>
-        <div class="search-lang-bar">
+      <header class="header-main">
+        <div class="header inner">
+          <a href="#" class="logo logo-1"><img src="img/header/logo.svg" alt="Logo"></a>
+          <a href="#" class="logo logo-2"><img src="img/header/logo-mobile.svg" alt="Logo"></a>
+          <div class="search-lang-bar">
 
-          <form class="search-form" onsubmit="event.preventDefault(); ">
 
-            <div class="input-container search-query">
-              <label class="text-field__label" for="find">Найти: </label>
-              <input class="text-field__input" type="text" id="find" name="find" value="Рестораны"
-                placeholder="Рестораны">
-            </div>
-            <div class="input-container search-city">
-              <label class="text-field__label" for="where">Где: </label>
-              <input class="text-field__input" type="text" id="where" name="where" value="Москва" placeholder="Москва">
+            <form class="search-form" onsubmit="event.preventDefault(); ">
 
-            </div>
-            <button type="submit" class="search-button">
-              <img class="icon-search" src="img/header/search.svg" alt="Найти">
-            </button>
-          </form>
+              <div class="input-container search-query">
+                <label class="text-field__label" for="find">Найти: </label>
+                <input class="text-field__input" type="text" id="find" name="find" value="Рестораны"
+                  placeholder="Рестораны">
+              </div>
+              <div class="input-container search-city">
+                <label class="text-field__label" for="where">Где: </label>
+                <input class="text-field__input" type="text" id="where" name="where" value="Москва"
+                  placeholder="Москва">
 
-          <div class="wrapper-language" id="wrapper-language-js">
-            <span class="active-lang flag-russian" id="active-lang-js"></span>
+              </div>
+              <button type="submit" class="search-button">
+                <img class="icon-search" src="img/header/search.svg" alt="Найти">
+              </button>
+            </form>
 
-            <div class="dropdown hide" id="dropdown-js">
-              <span class="close-icon-wrapper"></span>
-              <a href="#" class="lang flag-russian"> Русский</a>
-              <a href="#" class="lang flag-english"> English</a>
-              <a href="#" class="lang flag-espanol"> Espanol</a>
+            <div class="wrapper-language" id="wrapper-language-js">
+              <span class="active-lang flag-russian" id="active-lang-js"></span>
+
+              <div class="dropdown hide" id="dropdown-js">
+                <span class="close-icon-wrapper"></span>
+                <a href="#" class="lang flag-russian"> Русский</a>
+                <a href="#" class="lang flag-english"> English</a>
+                <a href="#" class="lang flag-espanol"> Espanol</a>
+              </div>
             </div>
           </div>
         </div>
+
+
       </header>
 
       <div class="breadcrumb">
@@ -64,7 +70,7 @@
       <main class="main">
         <div class="main-content inner">
           <div class="main-title-wrapper">
-            <h1 class="main-title">Рестораны Москвы</h1>
+            <h1 class="main-title" id="test">Рестораны Москвы</h1>
             <a class="all-restaurants" href="#">Все рестораны</a>
           </div>
 

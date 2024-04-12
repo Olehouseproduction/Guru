@@ -52,6 +52,18 @@ const device =
   )
     ? "mobile"
     : "computer";
+// Унести. Проверка на устройство (+добавить в дом элемент id = "test")
+// window.addEventListener("touchstart", () => {
+//   const element = document.getElementById("test");
+//   console.log(navigator.userAgent);
+//   element.textContent = navigator.userAgent;
+// });
+
+// window.addEventListener("click", () => {
+//   const element = document.getElementById("test");
+//   console.log(navigator.userAgent);
+//   element.textContent = navigator.userAgent;
+// });
 
 // Глобальные переменные
 const myDropdown = document.getElementById("dropdown-js");
@@ -68,26 +80,6 @@ function workWithDropDown(e) {
     }, 300);
   };
 
-  // console.log(e.target);
-  // Проверка, является ли событие кликом на флажке или вне меню
-
-  // if (e.target.matches("#active-lang-js")) {
-  //   console.log("Клик на флажок");
-  //   if (myDropdown.classList.contains("show")) {
-  //     hideDropdown();
-  //   } else {
-  //     myDropdown.classList.remove("hide");
-  //     setTimeout(() => {
-  //       myDropdown.classList.add("show");
-  //     }, 10);
-  //   }
-  // } else if (
-  //   !e.target.matches(".dropdown") &&
-  //   myDropdown.classList.contains("show")
-  // ) {
-  //   console.log("Клик вне флажка");
-  //   hideDropdown();
-  // }
   if (
     e.target.matches("#active-lang-js") ||
     (!e.target.matches(".dropdown") && myDropdown.classList.contains("show"))
@@ -151,6 +143,7 @@ function workWithLangs() {
   languages.forEach((elem) => {
     displayLang(elem);
     elem.addEventListener(eventOnClick, () => {
+      // event.stopPropagation(); // Предотвращаем всплытие события
       showLangElems();
       switchLang(elem);
       displayLang(elem);
