@@ -51,6 +51,7 @@ addEventListener("resize", () => {
 const myDropdown = document.getElementById("dropdown-js");
 const activeLang = document.getElementById("active-lang-js");
 const languages = document.querySelectorAll(".lang");
+let index = 0;
 
 function workWithDropDown(e) {
   // Функция скрытия dropdown
@@ -85,6 +86,8 @@ function workWithDropDown(e) {
     e.target.matches("#active-lang-js") ||
     (!e.target.matches(".dropdown") && myDropdown.classList.contains("show"))
   ) {
+    index++;
+    console.log("click active flag", index);
     if (myDropdown.classList.contains("show")) {
       hideDropdown();
     } else {
@@ -110,10 +113,10 @@ function workWithLangs() {
    */
   function langClassName(elem) {
     let classArray = Array.from(elem.classList);
-    console.log(classArray);
+    // console.log(classArray);
     const lang = classArray.find((_class) => {
       const checkClass = _class.includes("flag");
-      console.log(checkClass);
+      // console.log(checkClass);
       return checkClass;
     });
     return lang;
@@ -124,7 +127,7 @@ function workWithLangs() {
     const titleLangClassName = langClassName(activeLang);
 
     if (languageClassName != titleLangClassName) {
-      console.log("Смена языка", titleLangClassName, languageClassName);
+      // console.log("Смена языка", titleLangClassName, languageClassName);
       activeLang.classList.remove(titleLangClassName);
       activeLang.classList.add(languageClassName);
     }
@@ -132,7 +135,7 @@ function workWithLangs() {
 
   function displayLang(elem) {
     const languageClassName = langClassName(elem);
-    console.log(languageClassName);
+    // console.log(languageClassName);
     if (activeLang.classList.contains(languageClassName)) {
       elem.classList.add("hide");
     }
@@ -159,7 +162,7 @@ window.addEventListener("click", workWithDropDown);
 // window.addEventListener("touchstart", workWithLangs, { passive: true });
 workWithLangs();
 window.addEventListener("touchstart", workWithLangs, { passive: true });
-window.addEventListener("click", workWithDropDown);
+window.addEventListener("click", workWithLangs);
 
 // -----------------header-input----------------------
 
