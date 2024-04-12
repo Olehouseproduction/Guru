@@ -46,12 +46,17 @@ addEventListener("resize", () => {
 // -----------------slider-END---------------------
 
 //--------------------переключения языка-----------
+const device =
+  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent
+  )
+    ? "mobile"
+    : "computer";
 
 // Глобальные переменные
 const myDropdown = document.getElementById("dropdown-js");
 const activeLang = document.getElementById("active-lang-js");
 const languages = document.querySelectorAll(".lang");
-let index = 0;
 
 function workWithDropDown(e) {
   // Функция скрытия dropdown
@@ -86,8 +91,7 @@ function workWithDropDown(e) {
     e.target.matches("#active-lang-js") ||
     (!e.target.matches(".dropdown") && myDropdown.classList.contains("show"))
   ) {
-    index++;
-    console.log("click active flag", index);
+    console.log("CLICK ON MAIN TIME", device);
     if (myDropdown.classList.contains("show")) {
       hideDropdown();
     } else {
@@ -157,12 +161,13 @@ function workWithLangs() {
 //  Вызов основных функций
 // Добавляем обработчик события для всего окна
 // window.onclick = workWithDropDown;
-window.addEventListener("touchstart", workWithDropDown, { passive: true });
-window.addEventListener("click", workWithDropDown);
+const event = device == "mobile" ? "touchstart" : "click";
+window.addEventListener(event, workWithDropDown, { passive: true });
+// window.addEventListener("click", workWithDropDown);
 // window.addEventListener("touchstart", workWithLangs, { passive: true });
 workWithLangs();
-window.addEventListener("touchstart", workWithLangs, { passive: true });
-window.addEventListener("click", workWithLangs);
+window.addEventListener(event, workWithLangs, { passive: true });
+// window.addEventListener("click", workWithDropDown);
 
 // -----------------header-input----------------------
 

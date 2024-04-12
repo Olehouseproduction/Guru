@@ -202,6 +202,7 @@ input[type="text"] {
 
 .show {
   display: flex;
+  pointer-events: all;
   opacity: 1;
   z-index: 6;
   flex-direction: column;
@@ -211,6 +212,7 @@ input[type="text"] {
 
 .hide {
   display: none;
+  pointer-events: none;
 }
 
 .lang {
