@@ -57,6 +57,7 @@ const device =
 const myDropdown = document.getElementById("dropdown-js");
 const activeLang = document.getElementById("active-lang-js");
 const languages = document.querySelectorAll(".lang");
+const eventOnClick = device == "mobile" ? "touchstart" : "click";
 
 function workWithDropDown(e) {
   // Функция скрытия dropdown
@@ -149,8 +150,7 @@ function workWithLangs() {
 
   languages.forEach((elem) => {
     displayLang(elem);
-    elem.addEventListener("click", () => {
-      // event.stopPropagation(); // Предотвращаем всплытие события
+    elem.addEventListener(eventOnClick, () => {
       showLangElems();
       switchLang(elem);
       displayLang(elem);
@@ -160,14 +160,10 @@ function workWithLangs() {
 
 //  Вызов основных функций
 // Добавляем обработчик события для всего окна
-// window.onclick = workWithDropDown;
-const event = device == "mobile" ? "touchstart" : "click";
-window.addEventListener(event, workWithDropDown, { passive: true });
-// window.addEventListener("click", workWithDropDown);
-// window.addEventListener("touchstart", workWithLangs, { passive: true });
+
+window.addEventListener(eventOnClick, workWithDropDown, { passive: true });
 workWithLangs();
-window.addEventListener(event, workWithLangs, { passive: true });
-// window.addEventListener("click", workWithDropDown);
+window.addEventListener(eventOnClick, workWithLangs, { passive: true });
 
 // -----------------header-input----------------------
 
