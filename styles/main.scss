@@ -21,6 +21,18 @@ html {
   font-family: "Roboto Regular", sans-serif;
 }
 
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  // display: flex;
+  // flex-direction: column;
+  height: 100%;
+}
+
 .inner {
   max-width: 122.9rem;
   margin: 0 auto;
@@ -276,8 +288,11 @@ input[type="text"] {
 // -------------------------main----------------------------------
 
 .main {
-  padding: 3rem 2rem 5rem 2rem;
+  padding: 3rem 2rem 3rem 2rem;
   background-color: #f6f6f6;
+  // height: calc(
+  //   100vh - 128px
+  // ); /* Высота экрана минус высота заголовка и хлебных крошек */
 }
 
 .main-title-wrapper {
@@ -317,6 +332,20 @@ input[type="text"] {
 .card {
   width: 28.5rem;
   position: relative;
+}
+
+.card-image-container {
+  width: 28.5rem;
+  height: 19.1rem;
+  display: inline-block;
+  border-radius: 10%;
+  overflow: hidden;
+}
+
+.card-image {
+  border-radius: 20px;
+  margin: 0 0 0.6rem 0;
+  max-width: 100%;
 }
 
 .open-until {
@@ -466,11 +495,12 @@ input[type="text"] {
 
 //  ----------slider---------------
 .swiper {
-  // width: 122.9rem;
-  // height: 27.8rem;
   height: 30rem;
-  // width: 122.9rem;
 }
+// .swiper-slide {
+//   display: flex;
+//   justify-content: center;
+// }
 
 // ---- стрелки навигации----------
 .left,
@@ -543,6 +573,18 @@ input[type="text"] {
   }
 }
 
+// @media (max-width: 729px) {
+//   .header {
+//     gap: 1.2rem;
+//     flex-direction: column;
+//     align-items: flex-start;
+//   }
+//   .search-lang-bar {
+//     width: 100%;
+//     justify-content: space-between;
+//   }
+// }
+
 @media (max-width: 668px) {
   .wrapper-language {
     right: 13px;
@@ -602,6 +644,7 @@ input[type="text"] {
   // .card-image {
   //  width: 90vw;
   // }
+
   .logo-1 {
     display: none;
   }
@@ -626,7 +669,8 @@ input[type="text"] {
   }
 
   .open-until {
-    bottom: 21.2rem;
+    // bottom: 21.2rem;
+    bottom: 20.7rem;
   }
 }
 
@@ -649,5 +693,36 @@ input[type="text"] {
   }
   .main-title {
     font-size: 25px;
+  }
+}
+
+// @media (max-width: 390px) {
+//   .card {
+//     width: 36.4rem;
+//     height: 26.8rem;
+//   }
+//   .card-image-container {
+//     width: 36.4rem;
+//     height: 26.8rem;
+//   }
+//   .right {
+//     display: none;
+//   }
+//   .swiper-slide {
+//     margin: 0;
+//   }
+//   .main {
+//     padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+//   }
+//   .swiper {
+//     height: 100vh;
+//     width: 100vw;
+//   }
+// }
+
+@media (max-width: 350px) {
+  .main {
+    padding: 1rem 0.5rem 1rem 0.5rem;
+    height: 90vh;
   }
 }
