@@ -113,6 +113,9 @@ input[type="text"] {
   font-size: 17px;
   line-height: inherit;
   margin: 0;
+  &:focus {
+    outline: none;
+  }
 }
 
 .search-query .text-field__input {
@@ -350,11 +353,12 @@ input[type="text"] {
   display: inline-block;
   border-radius: 10%;
   overflow: hidden;
+  margin: 0 0 0.8rem 0;
 }
 
 .card-image {
   border-radius: 20px;
-  margin: 0 0 0.6rem 0;
+
   max-width: 100%;
 }
 
@@ -367,7 +371,7 @@ input[type="text"] {
   border-radius: 1.6rem;
   position: absolute;
   left: 0.9rem;
-  bottom: 22.5rem;
+  bottom: 23.3rem;
   font-family: "Roboto Bold";
   font-weight: 700;
   font-size: 13px;
@@ -595,9 +599,48 @@ input[type="text"] {
 //   }
 // }
 
+// Переход на один слайд
+
+@media (max-width: 729px) {
+  .card {
+    width: 36.4rem;
+  }
+
+  .swiper {
+    height: 37rem;
+  }
+  .right {
+    display: none;
+  }
+  .card-image-container {
+    width: 36.4rem;
+    height: 19.2rem;
+    margin: 0 0 1rem 0;
+  }
+  .card-image {
+    width: 100%;
+  }
+
+  .card-title-name {
+    font-size: 2rem;
+  }
+  .text-cuisine,
+  .text-town {
+    font-size: 1.3rem;
+  }
+  .card-title-rating,
+  .right-column {
+    font-size: 1.6rem;
+  }
+
+  .right-column {
+    font-family: "Roboto Regular";
+  }
+}
+
 @media (max-width: 668px) {
   .wrapper-language {
-    right: 13px;
+    right: 1.3rem;
   }
   .text-field__input {
     width: 100%;
@@ -607,12 +650,12 @@ input[type="text"] {
 @media (max-width: 644px) {
   .search-query {
     .text-field__input {
-      width: 200px;
+      width: 20rem;
     }
   }
   .search-city {
     .text-field__input {
-      width: 180px;
+      width: 18rem;
     }
   }
 }
@@ -651,10 +694,6 @@ input[type="text"] {
     flex-direction: column-reverse;
   }
 
-  // .card-image {
-  //  width: 90vw;
-  // }
-
   .logo-1 {
     display: none;
   }
@@ -675,26 +714,32 @@ input[type="text"] {
   }
 
   .wrapper-language {
-    margin: 0 0 5px 0;
+    margin: 0 0 0.5rem 0;
   }
 
   .open-until {
-    // bottom: 21.2rem;
-    bottom: 20.7rem;
+    bottom: 21.7rem;
   }
 }
 
 @media (max-width: 434px) {
   .text-field__label {
     @media (max-width: 434px) {
-      left: 10px;
+      left: 1rem;
     }
   }
 
   .text-field__input,
   .text-field__label {
-    font-size: 15px;
+    font-size: 1.5rem;
   }
+
+  .main {
+    padding: 2.4rem 0rem 0rem 1rem;
+  }
+}
+
+@media (max-width: 406px) {
 }
 
 @media (max-width: 400px) {
@@ -702,7 +747,13 @@ input[type="text"] {
     width: 83%;
   }
   .main-title {
-    font-size: 25px;
+    font-size: 2.5rem;
+  }
+  .card-image-container {
+    width: 100%;
+  }
+  .card {
+    width: 100%;
   }
 }
 
@@ -730,16 +781,9 @@ input[type="text"] {
 //   }
 // }
 
-@media (max-width: 350px) {
-  .main {
-    padding: 1rem 0.5rem 1rem 0.5rem;
-    height: 90vh;
-  }
-}
-
-.test {
-  width: 100%;
-  height: 30%;
-  background-color: #a72536;
-  position: absolute;
-}
+// @media (max-width: 350px) {
+//   .main {
+//     padding: 1rem 0.5rem 1rem 0.5rem;
+//     height: 90vh;
+//   }
+// }
