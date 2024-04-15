@@ -52,7 +52,7 @@ const device =
   )
     ? "mobile"
     : "computer";
-// Унести. Проверка на устройство (+добавить в дом элемент id = "test")
+// Проверка на устройство (+добавить в дом элемент id = "test")
 // window.addEventListener("touchstart", () => {
 //   const element = document.getElementById("test");
 //   console.log(navigator.userAgent);
@@ -185,3 +185,10 @@ inputSearchQuery.onfocus = function () {
 inputSearchQuery.onblur = function () {
   switchInput(this, "", "Москва");
 };
+
+// отладка открытия на ipad
+
+const closeButton = document.querySelector(".close-icon-wrapper");
+closeButton.addEventListener("click", () => {
+  console.log("click");
+});

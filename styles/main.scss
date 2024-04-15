@@ -261,15 +261,15 @@ input[type="text"] {
 }
 
 .flag-russian {
-  background: url("img/header/ru.jpg") no-repeat left center;
+  background: url("../img/header/ru.svg") no-repeat left center;
 }
 
 .flag-english {
-  background: url("img/header/en.svg") no-repeat left center;
+  background: url("../img/header/en.svg") no-repeat left center;
 }
 
 .flag-espanol {
-  background: url("img/header/es.svg") no-repeat left center;
+  background: url("../img/header/es.svg") no-repeat left center;
 }
 
 // --------------dropdown END-----------------------
@@ -756,34 +756,3 @@ input[type="text"] {
     width: 100%;
   }
 }
-
-// @media (max-width: 390px) {
-//   .card {
-//     width: 36.4rem;
-//     height: 26.8rem;
-//   }
-//   .card-image-container {
-//     width: 36.4rem;
-//     height: 26.8rem;
-//   }
-//   .right {
-//     display: none;
-//   }
-//   .swiper-slide {
-//     margin: 0;
-//   }
-//   .main {
-//     padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-//   }
-//   .swiper {
-//     height: 100vh;
-//     width: 100vw;
-//   }
-// }
-
-// @media (max-width: 350px) {
-//   .main {
-//     padding: 1rem 0.5rem 1rem 0.5rem;
-//     height: 90vh;
-//   }
-// }
