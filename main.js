@@ -140,10 +140,25 @@ function workWithLangs() {
 
   // Цикл по элементам выбора языка
 
+  //   languages.forEach((elem) => {
+  //     displayLang(elem);
+  //     elem.addEventListener(eventOnClick, () => {
+  //       // event.stopPropagation(); // Предотвращаем всплытие события
+  //       showLangElems();
+  //       switchLang(elem);
+  //       displayLang(elem);
+  //     });
+  //   });
+  // }
+
   languages.forEach((elem) => {
     displayLang(elem);
-    elem.addEventListener(eventOnClick, () => {
-      // event.stopPropagation(); // Предотвращаем всплытие события
+    elem.addEventListener("click", () => {
+      showLangElems();
+      switchLang(elem);
+      displayLang(elem);
+    });
+    elem.addEventListener("touchstart", () => {
       showLangElems();
       switchLang(elem);
       displayLang(elem);
@@ -154,9 +169,13 @@ function workWithLangs() {
 //  Вызов основных функций
 // Добавляем обработчик события для всего окна
 
-window.addEventListener(eventOnClick, workWithDropDown, { passive: true });
+// window.addEventListener(eventOnClick, workWithDropDown, { passive: true });
+// workWithLangs();
+// window.addEventListener(eventOnClick, workWithLangs, { passive: true });
+
+window.addEventListener("click", workWithDropDown, { passive: true });
+window.addEventListener("touchstart", workWithDropDown, { passive: true });
 workWithLangs();
-window.addEventListener(eventOnClick, workWithLangs, { passive: true });
 
 // -----------------header-input----------------------
 
