@@ -69,10 +69,11 @@ const device =
 const myDropdown = document.getElementById("dropdown-js");
 const activeLang = document.getElementById("active-lang-js");
 const languages = document.querySelectorAll(".lang");
-const eventOnClick = device == "mobile" ? "touchstart" : "click";
+// const eventOnClick = device == "mobile" ? "touchstart" : "click";
 
+// Функция, управляющая поведением выпадающего меню (dropdown)
 function workWithDropDown(e) {
-  // Функция скрытия dropdown
+  // скрытие выпадающего меню
   const hideDropdown = () => {
     myDropdown.classList.remove("show");
     setTimeout(() => {
@@ -108,6 +109,7 @@ function workWithLangs() {
    * @param {Element} elem Контейнер с языками
    * @returns {string|undefined} Возвращает выбор нужного языка
    */
+  // Определение класса языка для заданного элемента
   function langClassName(elem) {
     let classArray = Array.from(elem.classList);
     // console.log(classArray);
@@ -118,7 +120,7 @@ function workWithLangs() {
     });
     return lang;
   }
-
+  // Смена языка, основываясь на выборе пользователя
   function switchLang(elem) {
     const languageClassName = langClassName(elem);
     const titleLangClassName = langClassName(activeLang);
@@ -130,6 +132,7 @@ function workWithLangs() {
     }
   }
 
+  // Предотвращение повторного выбора уже активного языка
   function displayLang(elem) {
     const languageClassName = langClassName(elem);
     // console.log(languageClassName);
@@ -138,40 +141,41 @@ function workWithLangs() {
     }
   }
 
-  // Цикл по элементам выбора языка
+  // Предотвращаем дублирование действий при использовании сенсорных устройств
+  // Создаем переменную, чтобы отслеживать, произошло ли событие "touchstart"
+  let touchHandled = false;
 
-  //   languages.forEach((elem) => {
-  //     displayLang(elem);
-  //     elem.addEventListener(eventOnClick, () => {
-  //       // event.stopPropagation(); // Предотвращаем всплытие события
-  //       showLangElems();
-  //       switchLang(elem);
-  //       displayLang(elem);
-  //     });
-  //   });
-  // }
-
+  // Добавляем обработчики событий click и touchstart для каждого элемента языка с помощью цикла
   languages.forEach((elem) => {
     displayLang(elem);
-    elem.addEventListener("click", () => {
-      showLangElems();
-      switchLang(elem);
-      displayLang(elem);
-    });
-    elem.addEventListener("touchstart", () => {
-      showLangElems();
-      switchLang(elem);
-      displayLang(elem);
-    });
+    elem.addEventListener("click", handleLangEvent);
+    elem.addEventListener("touchstart", handleLangEvent);
   });
+
+  function handleLangEvent(event) {
+    // Если произошло событие touchstart, устанавливаем флаг touchHandled в true
+    if (event.type === "touchstart") {
+      touchHandled = true;
+      console.log("Событие прикосновения произошло");
+      // Если произошло событие click и touchHandled равен true, предотвращаем его выполнение
+    } else if (event.type === "click" && touchHandled) {
+      event.preventDefault();
+      event.stopPropagation();
+      console.log("Событие клика после прикосновения предотвращено");
+      touchHandled = false;
+      return;
+    }
+
+    // Обработка события click или touchstart
+    console.log("Обработка события:", event.type);
+    showLangElems();
+    switchLang(event.currentTarget);
+    displayLang(event.currentTarget);
+  }
 }
 
-//  Вызов основных функций
-// Добавляем обработчик события для всего окна
-
-// window.addEventListener(eventOnClick, workWithDropDown, { passive: true });
-// workWithLangs();
-// window.addEventListener(eventOnClick, workWithLangs, { passive: true });
+// Вызов основных функций
+// Добавляем обработчик событий click и touchstart для всего окна
 
 window.addEventListener("click", workWithDropDown, { passive: true });
 window.addEventListener("touchstart", workWithDropDown, { passive: true });
@@ -204,10 +208,3 @@ inputSearchQuery.onfocus = function () {
 inputSearchQuery.onblur = function () {
   switchInput(this, "", "Москва");
 };
-
-// отладка открытия на ipad
-
-const closeButton = document.querySelector(".close-icon-wrapper");
-closeButton.addEventListener("click", () => {
-  console.log("click");
-});
