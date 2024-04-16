@@ -19,7 +19,6 @@ ul {
 html {
   font-size: 10px;
   font-family: "Roboto Regular", sans-serif;
-  // overflow-y: hidden;
 }
 
 html,
@@ -30,8 +29,6 @@ body {
 }
 
 .container {
-  // display: flex;
-  // flex-direction: column;
   height: 100%;
 }
 
@@ -50,7 +47,7 @@ body {
   justify-content: space-between;
   -webkit-box-align: center;
   align-items: center;
-  padding: 1.8rem 10px 2rem 10px;
+  padding: 1.8rem 1rem 2rem 1rem;
 }
 
 // -----------------скрытые классы для отображения в мобильной версии----------------------
@@ -67,18 +64,18 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 2rem;
 }
 
 // -----------------header-input----------------------
 
 .border {
-  background-color: #cfcfcf;
+  background-color: $gray;
   // вынести в перемен
-  width: 1px;
-  height: 28px;
+  width: 0.1rem;
+  height: 2.8rem;
   margin: 1.2% 0;
-  border-bottom: 1px solid #cfcfcf;
+  border-bottom: 0.1rem solid $gray;
 }
 
 .search-city {
@@ -87,10 +84,10 @@ body {
 
 .search-city::before {
   content: "";
-  width: 1px;
-  height: 28px;
+  width: 0.1rem;
+  height: 2.8rem;
   position: absolute;
-  background-color: #cfcfcf;
+  background-color: $gray;
   margin: 3.2% 0;
 }
 
@@ -100,8 +97,8 @@ form {
 
 .text-field__label {
   font-weight: 600;
-  font-size: 17px;
-  line-height: 40px;
+  font-size: 1.7rem;
+  line-height: 4rem;
 }
 
 .input-container {
@@ -110,7 +107,7 @@ form {
 
 input[type="text"] {
   font-family: inherit;
-  font-size: 17px;
+  font-size: 1.7rem;
   line-height: inherit;
   margin: 0;
   &:focus {
@@ -119,13 +116,13 @@ input[type="text"] {
 }
 
 .search-query .text-field__input {
-  padding-left: 76px;
-  width: 312px;
+  padding-left: 7.6rem;
+  width: 31.2rem;
 }
 
 .input-container .text-field__label {
   position: absolute;
-  left: 14px;
+  left: 1.4rem;
   top: 50%;
   transform: translateY(-50%);
   pointer-events: none;
@@ -134,22 +131,22 @@ input[type="text"] {
 }
 
 .search-city .text-field__input {
-  padding-left: 50px;
-  width: 220px;
+  padding-left: 5rem;
+  width: 22rem;
 }
 
 .text-field__input {
   display: block;
   width: 100%;
-  height: calc(2.25rem + 2px);
-  padding: 20px 0 20px 76px;
+  height: calc(2.25rem + 0.2rem);
+  padding: 2rem 0 2rem 7.6rem;
   font-family: inherit;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
   color: #212529;
   background-color: #fff;
-  border: 1px solid #bdbdbd;
+  border: 0.1rem solid #bdbdbd;
   border-radius: 1.2rem;
   -webkit-transition: border-color 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;
@@ -168,9 +165,9 @@ input[type="text"] {
 }
 
 .search-button {
-  background-color: #754040;
-  width: 50px;
-  border-radius: 0px 1.2rem 1.2rem 0px;
+  background-color: $chocolate;
+  width: 5rem;
+  border-radius: 0 1.2rem 1.2rem 0;
   border: none;
   cursor: pointer;
 }
@@ -180,29 +177,29 @@ input[type="text"] {
 .wrapper-language {
   position: relative;
   z-index: 5;
-  right: 7px;
+  right: 0.7rem;
 }
 
 .active-lang {
   display: block;
-  width: 32px;
-  height: 32px;
+  width: 3.2rem;
+  height: 3.2rem;
   cursor: pointer;
   position: static;
-  background-size: 23px;
+  background-size: 2.3rem;
   z-index: 6;
 }
 
 .dropdown {
-  top: -7px;
+  top: -0.7rem;
   position: absolute;
   background-color: #fff;
-  right: 0px;
+  right: 0;
   z-index: 100;
-  padding: 18px 18px 4px;
-  min-width: 165px;
-  border-radius: 0 0 10px 10px;
-  box-shadow: 0 0 8px 0 #86878940;
+  padding: 1.8rem 1.8rem 0.4rem;
+  min-width: 16.5rem;
+  border-radius: 0 0 1rem 1rem;
+  box-shadow: 0 0 0.8rem 0 #86878940;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   opacity: 0;
@@ -228,19 +225,19 @@ input[type="text"] {
 .lang {
   color: #000;
   position: relative;
-  padding-left: 40px;
+  padding-left: 4rem;
   font-family: "Roboto Regular";
-  font-size: 15px;
-  line-height: 40px;
+  font-size: 1.5rem;
+  line-height: 4rem;
 }
 
 .close-icon-wrapper {
   display: block;
-  width: 28px;
-  height: 28px;
+  width: 2.8rem;
+  height: 2.8rem;
   position: absolute;
-  top: 19px;
-  right: 8px;
+  top: 1.9rem;
+  right: 0.8rem;
   cursor: pointer;
   z-index: 1;
 
@@ -248,8 +245,8 @@ input[type="text"] {
   &:after {
     content: "";
     position: absolute;
-    width: 10px;
-    height: 1px;
+    width: 1rem;
+    height: 0.1rem;
     background: #c4c4c4;
   }
   &:before {
@@ -301,11 +298,6 @@ input[type="text"] {
 
 .main {
   padding: 3rem 2rem 3rem 2rem;
-  // background-color: #f6f6f6;
-  // height: 100vh;
-  // height: calc(
-  //   100vh - 128px
-  // ); /* Высота экрана минус высота заголовка и хлебных крошек */
 }
 
 .main-title-wrapper {
@@ -318,19 +310,18 @@ input[type="text"] {
 
 .main-title {
   font-family: "Akrobat";
-  font-size: 30px;
-  line-height: 35px;
+  font-size: 3rem;
+  line-height: 3.5rem;
   font-weight: 500;
 }
 
 .all-restaurants {
-  font-size: 15px;
-  line-height: 18px;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
   color: #000000;
   opacity: 0.6;
   -webkit-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
-  // padding: 10px 0;
   cursor: pointer;
   z-index: 101;
   &:hover {
@@ -357,8 +348,7 @@ input[type="text"] {
 }
 
 .card-image {
-  border-radius: 20px;
-
+  border-radius: 2rem;
   max-width: 100%;
 }
 
@@ -374,7 +364,7 @@ input[type="text"] {
   bottom: 23.3rem;
   font-family: "Roboto Bold";
   font-weight: 700;
-  font-size: 13px;
+  font-size: 1.3rem;
   line-height: 125%;
   display: flex;
   align-items: center;
@@ -395,7 +385,7 @@ input[type="text"] {
 
 .card-title-name {
   font-family: "Roboto Bold";
-  font-size: 16px;
+  font-size: 1.6rem;
   line-height: 120%;
   display: flex;
   color: #5b484a;
@@ -404,16 +394,16 @@ input[type="text"] {
 .card-title-rating {
   font-family: "Inter";
   font-weight: 600;
-  font-size: 14px;
+  font-size: 1.4rem;
   color: #a72536;
   display: flex;
   align-items: center;
   &::before {
     content: "";
-    margin: 0 4px 0 0;
-    width: 19px;
-    height: 17px;
-    background: url("img/card/star.svg") left center no-repeat;
+    margin: 0 0.4rem 0 0;
+    width: 1.9rem;
+    height: 1.7rem;
+    background: url("../img/card/star.svg") left center no-repeat;
   }
 
   .card-title-rating-count {
@@ -450,7 +440,7 @@ input[type="text"] {
     align-items: center;
 
     &::before {
-      content: url("img/card/restaurant_menu.svg");
+      content: url("../img/card/restaurant_menu.svg");
       margin: 0 0.8rem 0 0;
     }
   }
@@ -480,7 +470,7 @@ input[type="text"] {
     display: flex;
     align-items: center;
     &::before {
-      content: url("img/card/receipt_long.svg");
+      content: url("../img/card/receipt_long.svg");
       margin: 0 0.4rem 0 0;
     }
   }
@@ -498,7 +488,7 @@ input[type="text"] {
     display: flex;
     align-items: center;
     &::before {
-      content: url("img/card/directions_car.svg");
+      content: url("../img/card/directions_car.svg");
       margin: 0 0.4rem 0 0;
     }
   }
@@ -511,18 +501,14 @@ input[type="text"] {
 .swiper {
   height: 30rem;
 }
-// .swiper-slide {
-//   display: flex;
-//   justify-content: center;
-// }
 
 // ---- стрелки навигации----------
 .left,
 .right {
   display: inline-flex;
   background-color: #fff;
-  min-width: 45px;
-  min-height: 45px;
+  min-width: 4.5rem;
+  min-height: 4.5rem;
   border-radius: 50%;
   cursor: pointer;
   position: absolute;
@@ -537,27 +523,27 @@ input[type="text"] {
 .left::before,
 .right::before {
   content: "";
-  width: 14px;
-  height: 14px;
+  width: 1.4rem;
+  height: 1.4rem;
   position: absolute;
   top: 50%;
   -webkit-transition: all 0.3s ease-in;
   transition: all 0.3s ease;
-  border-top: 3px solid #616161;
+  border-top: 0.3rem solid $dark-purple;
 }
 
 .left::before {
-  border-left: 3px solid #616161;
+  border-left: 0.3rem solid $dark-purple;
   transform: translateY(-50%) rotate(-45deg);
   left: 50%;
-  margin-left: -4px;
+  margin-left: -0.4rem;
 }
 
 .right::before {
-  border-right: 3px solid #616161;
+  border-right: 0.3rem solid $dark-purple;
   transform: translateY(-50%) rotate(45deg);
   right: 50%;
-  margin-right: -4px;
+  margin-right: -0.4rem;
 }
 
 .left:hover::before,
@@ -586,18 +572,6 @@ input[type="text"] {
     justify-content: space-between;
   }
 }
-
-// @media (max-width: 729px) {
-//   .header {
-//     gap: 1.2rem;
-//     flex-direction: column;
-//     align-items: flex-start;
-//   }
-//   .search-lang-bar {
-//     width: 100%;
-//     justify-content: space-between;
-//   }
-// }
 
 // Переход на один слайд
 
@@ -681,7 +655,6 @@ input[type="text"] {
   }
   .search-lang-bar {
     justify-content: end;
-    // width: auto;
     position: absolute;
     right: 0;
   }
@@ -737,9 +710,6 @@ input[type="text"] {
   .main {
     padding: 2.4rem 0rem 0rem 1rem;
   }
-}
-
-@media (max-width: 406px) {
 }
 
 @media (max-width: 400px) {
