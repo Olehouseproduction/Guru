@@ -46,30 +46,33 @@ addEventListener("resize", () => {
 // -----------------slider-END---------------------
 
 //--------------------переключения языка-----------
-const device =
-  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-    navigator.userAgent
-  )
-    ? "mobile"
-    : "computer";
-// Проверка на устройство (+добавить в дом элемент id = "test")
-// window.addEventListener("touchstart", () => {
-//   const element = document.getElementById("test");
-//   console.log(navigator.userAgent);
-//   element.textContent = navigator.userAgent;
-// });
-
-// window.addEventListener("click", () => {
-//   const element = document.getElementById("test");
-//   console.log(navigator.userAgent);
-//   element.textContent = navigator.userAgent;
-// });
 
 // Глобальные переменные
 const myDropdown = document.getElementById("dropdown-js");
 const activeLang = document.getElementById("active-lang-js");
 const languages = document.querySelectorAll(".lang");
-// const eventOnClick = device == "mobile" ? "touchstart" : "click";
+
+/**
+ * @return {string} возвращает имя ивента touchstart, если это тач девайс или click, если это ПК
+ */
+function isTouchDevice() {
+  //наш девайс, возможно в данном вызове не будет отрабатывать
+  // const device =
+  //   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+  //     navigator.userAgent
+  //   )
+  //     ? "mobile"
+  //     : "computer";
+
+  const isTouch =
+    // device == "mobile" ||
+    "ontouchstart" in window || //touch event присутствует в окне
+    navigator.maxTouchPoints > 0 || //у touch event заданы точки соприкосновения с экраном
+    navigator.msMaxTouchPoints > 0; // у touch event заданная задержка от прикосновения
+  console.log("touch or click? ", isTouch);
+
+  return isTouch ? "touchstart" : "click";
+}
 
 // Функция, управляющая поведением выпадающего меню (dropdown)
 function workWithDropDown(e) {
@@ -85,7 +88,6 @@ function workWithDropDown(e) {
     e.target.matches("#active-lang-js") ||
     (!e.target.matches(".dropdown") && myDropdown.classList.contains("show"))
   ) {
-    console.log("CLICK ON MAIN TIME", device);
     if (myDropdown.classList.contains("show")) {
       hideDropdown();
     } else {
@@ -143,28 +145,21 @@ function workWithLangs() {
 
   // Предотвращаем дублирование действий при использовании сенсорных устройств
   // Создаем переменную, чтобы отслеживать, произошло ли событие "touchstart"
-  let touchHandled = false;
-
-  // Добавляем обработчики событий click и touchstart для каждого элемента языка с помощью цикла
-  languages.forEach((elem) => {
-    displayLang(elem);
-    elem.addEventListener("click", handleLangEvent);
-    elem.addEventListener("touchstart", handleLangEvent);
-  });
+  // let touchHandled = false;
 
   function handleLangEvent(event) {
     // Если произошло событие touchstart, устанавливаем флаг touchHandled в true
-    if (event.type === "touchstart") {
-      touchHandled = true;
-      console.log("Событие прикосновения произошло");
-      // Если произошло событие click и touchHandled равен true, предотвращаем его выполнение
-    } else if (event.type === "click" && touchHandled) {
-      event.preventDefault();
-      event.stopPropagation();
-      console.log("Событие клика после прикосновения предотвращено");
-      touchHandled = false;
-      return;
-    }
+    // if (event.type === "touchstart") {
+    //   touchHandled = true;
+    //   console.log("Событие прикосновения произошло");
+    //   // Если произошло событие click и touchHandled равен true, предотвращаем его выполнение
+    // } else if (event.type === "click" && touchHandled) {
+    //   event.preventDefault();
+    //   event.stopPropagation();
+    //   console.log("Событие клика после прикосновения предотвращено");
+    //   touchHandled = false;
+    //   return;
+    // }
 
     // Обработка события click или touchstart
     console.log("Обработка события:", event.type);
@@ -172,13 +167,20 @@ function workWithLangs() {
     switchLang(event.currentTarget);
     displayLang(event.currentTarget);
   }
+
+  // Добавляем обработчики событий click и touchstart для каждого элемента языка с помощью цикла
+  languages.forEach((elem) => {
+    displayLang(elem);
+    // elem.addEventListener("click", handleLangEvent);
+    elem.addEventListener(isTouchDevice(), handleLangEvent);
+  });
 }
 
 // Вызов основных функций
 // Добавляем обработчик событий click и touchstart для всего окна
 
-window.addEventListener("click", workWithDropDown, { passive: true });
-window.addEventListener("touchstart", workWithDropDown, { passive: true });
+window.addEventListener(isTouchDevice(), workWithDropDown, { passive: true });
+// window.addEventListener("touchstart", workWithDropDown, { passive: true });
 workWithLangs();
 
 // -----------------header-input----------------------
