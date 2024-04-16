@@ -10,9 +10,9 @@ const swiper = new Swiper(".swiper", {
   modules: [Navigation],
   direction: "horizontal",
   slidesPerView: 1,
-  spaceBetween: 21,
+  // spaceBetween: -13,
   // slidesPerView: 2,
-  // spaceBetween: 21,
+  spaceBetween: 21,
   loop: true,
   // centeredSlides: true,
   // slidesOffsetBefore: 50,
@@ -23,10 +23,33 @@ const swiper = new Swiper(".swiper", {
   },
 
   breakpoints: {
+    0: {
+      slidesPerView: 1,
+      spaceBetween: 0,
+    },
+
+    320: {
+      slidesPerView: 1,
+      spaceBetween: -13,
+    },
+
+    400: {
+      slidesPerView: 2,
+      spaceBetween: 350,
+    },
+
+    600: {
+      slidesPerView: 2,
+      spaceBetween: 170,
+    },
+
+    720: {
+      slidesPerView: 2,
+      spaceBetween: 90,
+    },
+
     730: {
       slidesPerView: 2,
-      // spaceBetween: 10,
-      spaceBetween: 30,
     },
 
     1024: {
@@ -56,19 +79,10 @@ const languages = document.querySelectorAll(".lang");
  * @return {string} возвращает имя ивента touchstart, если это тач девайс или click, если это ПК
  */
 function isTouchDevice() {
-  //наш девайс, возможно в данном вызове не будет отрабатывать
-  // const device =
-  //   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-  //     navigator.userAgent
-  //   )
-  //     ? "mobile"
-  //     : "computer";
-
   const isTouch =
-    // device == "mobile" ||
-    "ontouchstart" in window || //touch event присутствует в окне
-    navigator.maxTouchPoints > 0 || //у touch event заданы точки соприкосновения с экраном
-    navigator.msMaxTouchPoints > 0; // у touch event заданная задержка от прикосновения
+    "ontouchstart" in window || // свойство ontouchstart существует
+    navigator.maxTouchPoints > 0 || // значение navigator.maxTouchPoints больше нуля
+    navigator.msMaxTouchPoints > 0; // то же в старых версиях Internet Explorer и Microsoft Edge
   console.log("touch or click? ", isTouch);
 
   return isTouch ? "touchstart" : "click";
@@ -114,10 +128,8 @@ function workWithLangs() {
   // Определение класса языка для заданного элемента
   function langClassName(elem) {
     let classArray = Array.from(elem.classList);
-    // console.log(classArray);
     const lang = classArray.find((_class) => {
       const checkClass = _class.includes("flag");
-      // console.log(checkClass);
       return checkClass;
     });
     return lang;
@@ -137,50 +149,26 @@ function workWithLangs() {
   // Предотвращение повторного выбора уже активного языка
   function displayLang(elem) {
     const languageClassName = langClassName(elem);
-    // console.log(languageClassName);
     if (activeLang.classList.contains(languageClassName)) {
       elem.classList.add("hide");
     }
   }
 
-  // Предотвращаем дублирование действий при использовании сенсорных устройств
-  // Создаем переменную, чтобы отслеживать, произошло ли событие "touchstart"
-  // let touchHandled = false;
-
   function handleLangEvent(event) {
-    // Если произошло событие touchstart, устанавливаем флаг touchHandled в true
-    // if (event.type === "touchstart") {
-    //   touchHandled = true;
-    //   console.log("Событие прикосновения произошло");
-    //   // Если произошло событие click и touchHandled равен true, предотвращаем его выполнение
-    // } else if (event.type === "click" && touchHandled) {
-    //   event.preventDefault();
-    //   event.stopPropagation();
-    //   console.log("Событие клика после прикосновения предотвращено");
-    //   touchHandled = false;
-    //   return;
-    // }
-
-    // Обработка события click или touchstart
     console.log("Обработка события:", event.type);
     showLangElems();
     switchLang(event.currentTarget);
     displayLang(event.currentTarget);
   }
 
-  // Добавляем обработчики событий click и touchstart для каждого элемента языка с помощью цикла
   languages.forEach((elem) => {
     displayLang(elem);
-    // elem.addEventListener("click", handleLangEvent);
     elem.addEventListener(isTouchDevice(), handleLangEvent);
   });
 }
 
 // Вызов основных функций
-// Добавляем обработчик событий click и touchstart для всего окна
-
 window.addEventListener(isTouchDevice(), workWithDropDown, { passive: true });
-// window.addEventListener("touchstart", workWithDropDown, { passive: true });
 workWithLangs();
 
 // -----------------header-input----------------------

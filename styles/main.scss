@@ -258,15 +258,15 @@ input[type="text"] {
 }
 
 .flag-russian {
-  background: url("../img/header/ru.svg") no-repeat left center;
+  background: url("Images/header/ru.svg") no-repeat left center;
 }
 
 .flag-english {
-  background: url("../img/header/en.svg") no-repeat left center;
+  background: url("Images/header/en.svg") no-repeat left center;
 }
 
 .flag-espanol {
-  background: url("../img/header/es.svg") no-repeat left center;
+  background: url("Images/header/es.svg") no-repeat left center;
 }
 
 // --------------dropdown END-----------------------
@@ -403,7 +403,7 @@ input[type="text"] {
     margin: 0 0.4rem 0 0;
     width: 1.9rem;
     height: 1.7rem;
-    background: url("../img/card/star.svg") left center no-repeat;
+    background: url("Images/card/star.svg") left center no-repeat;
   }
 
   .card-title-rating-count {
@@ -440,7 +440,7 @@ input[type="text"] {
     align-items: center;
 
     &::before {
-      content: url("../img/card/restaurant_menu.svg");
+      content: url("Images/card/restaurant_menu.svg");
       margin: 0 0.8rem 0 0;
     }
   }
@@ -470,7 +470,7 @@ input[type="text"] {
     display: flex;
     align-items: center;
     &::before {
-      content: url("../img/card/receipt_long.svg");
+      content: url("Images/card/receipt_long.svg");
       margin: 0 0.4rem 0 0;
     }
   }
@@ -488,7 +488,7 @@ input[type="text"] {
     display: flex;
     align-items: center;
     &::before {
-      content: url("../img/card/directions_car.svg");
+      content: url("Images/card/directions_car.svg");
       margin: 0 0.4rem 0 0;
     }
   }
@@ -576,6 +576,14 @@ input[type="text"] {
 // Переход на один слайд
 
 @media (max-width: 729px) {
+  .main {
+    padding: 3rem 0 3rem 2rem;
+  }
+
+  .inner {
+    width: inherit;
+  }
+
   .card {
     width: 36.4rem;
   }
@@ -722,7 +730,13 @@ input[type="text"] {
   .card-image-container {
     width: 100%;
   }
+  // .card {
+  //   width: 90%;
+  // }
+}
+
+@media (max-width: 394px) {
   .card {
-    width: 100%;
+    width: 90%;
   }
 }
