@@ -1,0 +1,728 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+html {
+  font-size: 10px;
+  font-family: "Roboto Regular", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background-color: #f6f6f6;
+}
+
+.container {
+  height: 100%;
+}
+
+.inner {
+  max-width: 122.9rem;
+  margin: 0 auto;
+}
+
+.header-main {
+  background-color: #fff;
+}
+
+.header {
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 1.8rem 1rem 2rem 1rem;
+}
+
+// -----------------скрытые классы для отображения в мобильной версии----------------------
+.logo-2 {
+  display: none;
+}
+
+.text-currency-1 {
+  display: none;
+}
+// -----------------скрытые классы для мобильной версии END----------------------
+
+.search-lang-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+// -----------------header-input----------------------
+
+.border {
+  background-color: $gray;
+  // вынести в перемен
+  width: 0.1rem;
+  height: 2.8rem;
+  margin: 1.2% 0;
+  border-bottom: 0.1rem solid $gray;
+}
+
+.search-city {
+  position: relative;
+}
+
+.search-city::before {
+  content: "";
+  width: 0.1rem;
+  height: 2.8rem;
+  position: absolute;
+  background-color: $gray;
+  margin: 3.2% 0;
+}
+
+form {
+  display: flex;
+}
+
+.text-field__label {
+  font-weight: 600;
+  font-size: 1.7rem;
+  line-height: 4rem;
+}
+
+.input-container {
+  position: relative;
+}
+
+input[type="text"] {
+  font-family: inherit;
+  font-size: 1.7rem;
+  line-height: inherit;
+  margin: 0;
+  &:focus {
+    outline: none;
+  }
+}
+
+.search-query .text-field__input {
+  padding-left: 7.6rem;
+  width: 31.2rem;
+}
+
+.input-container .text-field__label {
+  position: absolute;
+  left: 1.4rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.search-city .text-field__input {
+  padding-left: 5rem;
+  width: 22rem;
+}
+
+.text-field__input {
+  display: block;
+  width: 100%;
+  height: calc(2.25rem + 0.2rem);
+  padding: 2rem 0 2rem 7.6rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  border: 0.1rem solid #bdbdbd;
+  border-radius: 1.2rem;
+  -webkit-transition: border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.search-city .text-field__input {
+  border-left: none;
+  border-radius: inherit;
+}
+
+.search-query .text-field__input {
+  border-right: none;
+  border-top-right-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+
+.search-button {
+  background-color: $chocolate;
+  width: 5rem;
+  border-radius: 0 1.2rem 1.2rem 0;
+  border: none;
+  cursor: pointer;
+}
+
+// --------------dropdown-----------------------
+
+.wrapper-language {
+  position: relative;
+  z-index: 5;
+  right: 0.7rem;
+}
+
+.active-lang {
+  display: block;
+  width: 3.2rem;
+  height: 3.2rem;
+  cursor: pointer;
+  position: static;
+  background-size: 2.3rem;
+  z-index: 6;
+}
+
+.dropdown {
+  top: -0.7rem;
+  position: absolute;
+  background-color: #fff;
+  right: 0;
+  z-index: 100;
+  padding: 1.8rem 1.8rem 0.4rem;
+  min-width: 16.5rem;
+  border-radius: 0 0 1rem 1rem;
+  box-shadow: 0 0 0.8rem 0 #86878940;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+}
+
+.show {
+  display: flex;
+  pointer-events: all;
+  opacity: 1;
+  z-index: 6;
+  flex-direction: column;
+  -webkit-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+}
+
+.hide {
+  display: none;
+  pointer-events: none;
+}
+
+.lang {
+  color: #000;
+  position: relative;
+  padding-left: 4rem;
+  font-family: "Roboto Regular";
+  font-size: 1.5rem;
+  line-height: 4rem;
+}
+
+.close-icon-wrapper {
+  display: block;
+  width: 2.8rem;
+  height: 2.8rem;
+  position: absolute;
+  top: 1.9rem;
+  right: 0.8rem;
+  cursor: pointer;
+  z-index: 1;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    width: 1rem;
+    height: 0.1rem;
+    background: #c4c4c4;
+  }
+  &:before {
+    transform: rotate(45deg);
+  }
+  &:after {
+    transform: rotate(-45deg);
+  }
+}
+
+.flag-russian {
+  background: url("../img/header/ru.svg") no-repeat left center;
+}
+
+.flag-english {
+  background: url("../img/header/en.svg") no-repeat left center;
+}
+
+.flag-espanol {
+  background: url("../img/header/es.svg") no-repeat left center;
+}
+
+// --------------dropdown END-----------------------
+
+.breadcrumb {
+  background-color: $dark-grey;
+  color: #ffffff;
+  flex-direction: column;
+}
+
+.breadcrumb-list {
+  background-color: $dark-grey;
+  color: #ffffff;
+  display: flex;
+  font-size: 1.4rem;
+  font-family: "Roboto Regular";
+  line-height: 1.6rem;
+  padding: 1rem 2rem 1rem 2rem;
+
+  li:nth-child(odd):not(:last-child) {
+    margin-right: 0.56rem;
+  }
+  li:nth-child(even):not(:last-child) {
+    margin-right: 0.2rem;
+  }
+}
+
+// -------------------------main----------------------------------
+
+.main {
+  padding: 3rem 2rem 3rem 2rem;
+}
+
+.main-title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 0 0 1.05rem 0;
+  width: 98%;
+}
+
+.main-title {
+  font-family: "Akrobat";
+  font-size: 3rem;
+  line-height: 3.5rem;
+  font-weight: 500;
+}
+
+.all-restaurants {
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+  color: #000000;
+  opacity: 0.6;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  cursor: pointer;
+  z-index: 101;
+  &:hover {
+    opacity: 1;
+    -webkit-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+  }
+}
+
+// ---------------slider------------------------------
+
+.card {
+  width: 28.5rem;
+  position: relative;
+}
+
+.card-image-container {
+  width: 28.5rem;
+  height: 19.1rem;
+  display: inline-block;
+  border-radius: 10%;
+  overflow: hidden;
+  margin: 0 0 0.8rem 0;
+}
+
+.card-image {
+  border-radius: 2rem;
+  max-width: 100%;
+}
+
+.open-until {
+  width: 13.6rem;
+  padding: 0.8rem 0;
+  background: rgba(47, 34, 36, 0.16);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 1.6rem;
+  position: absolute;
+  left: 0.9rem;
+  bottom: 23.3rem;
+  font-family: "Roboto Bold";
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 125%;
+  display: flex;
+  align-items: center;
+  color: #d0c8c9;
+  justify-content: center;
+  span {
+    color: #f6f4f4;
+    margin: 0 0 0 0.4rem;
+  }
+}
+
+.card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0.4rem;
+}
+
+.card-title-name {
+  font-family: "Roboto Bold";
+  font-size: 1.6rem;
+  line-height: 120%;
+  display: flex;
+  color: #5b484a;
+}
+
+.card-title-rating {
+  font-family: "Inter";
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: #a72536;
+  display: flex;
+  align-items: center;
+  &::before {
+    content: "";
+    margin: 0 0.4rem 0 0;
+    width: 1.9rem;
+    height: 1.7rem;
+    background: url("../img/card/star.svg") left center no-repeat;
+  }
+
+  .card-title-rating-count {
+    color: #ab9c9e;
+    margin: 0 0 0 0.4rem;
+  }
+}
+
+.card-text {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0.4rem 0 0.4rem;
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  font-family: "Roboto Medium";
+  font-size: 1.1rem;
+  line-height: 125%;
+
+  .text-town {
+    color: $taupe;
+  }
+
+  .text-price {
+    display: flex;
+    align-items: center;
+  }
+
+  .text-cuisine {
+    color: $dark-grey;
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: url("../img/card/restaurant_menu.svg");
+      margin: 0 0.8rem 0 0;
+    }
+  }
+
+  .text-currency {
+    color: #5b484a;
+    display: flex;
+    align-items: center;
+    span {
+      color: #ab9c9e;
+      display: flex;
+      align-items: center;
+      margin: 0 0 0 0.3rem;
+    }
+    ::after {
+      content: "";
+      display: inline-block;
+      width: 0.1rem;
+      height: 1.6rem;
+      background-color: #ab9c9e;
+      margin: 0 0.8rem;
+    }
+  }
+
+  .text-check {
+    color: $dark-grey;
+    display: flex;
+    align-items: center;
+    &::before {
+      content: url("../img/card/receipt_long.svg");
+      margin: 0 0.4rem 0 0;
+    }
+  }
+}
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 1.1rem;
+  font-family: "Roboto Bold";
+  font-weight: 700;
+  .text-time {
+    color: $dark-grey;
+    display: flex;
+    align-items: center;
+    &::before {
+      content: url("../img/card/directions_car.svg");
+      margin: 0 0.4rem 0 0;
+    }
+  }
+  .text-distance {
+    color: $taupe;
+  }
+}
+
+//  ----------slider---------------
+.swiper {
+  height: 30rem;
+}
+
+// ---- стрелки навигации----------
+.left,
+.right {
+  display: inline-flex;
+  background-color: #fff;
+  min-width: 4.5rem;
+  min-height: 4.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  z-index: 2;
+}
+
+.right {
+  right: 0%;
+}
+
+.left::before,
+.right::before {
+  content: "";
+  width: 1.4rem;
+  height: 1.4rem;
+  position: absolute;
+  top: 50%;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease;
+  border-top: 0.3rem solid $dark-purple;
+}
+
+.left::before {
+  border-left: 0.3rem solid $dark-purple;
+  transform: translateY(-50%) rotate(-45deg);
+  left: 50%;
+  margin-left: -0.4rem;
+}
+
+.right::before {
+  border-right: 0.3rem solid $dark-purple;
+  transform: translateY(-50%) rotate(45deg);
+  right: 50%;
+  margin-right: -0.4rem;
+}
+
+.left:hover::before,
+.right:hover::before {
+  border-color: #a72536;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease;
+}
+
+//  ----------media-queries-------------
+
+@media (max-width: 1364px) {
+  .inner {
+    width: 96%;
+  }
+}
+
+@media (max-width: 940px) {
+  .header {
+    gap: 1.2rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .search-lang-bar {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+// Переход на один слайд
+
+@media (max-width: 729px) {
+  .card {
+    width: 36.4rem;
+  }
+
+  .swiper {
+    height: 37rem;
+  }
+  .right {
+    display: none;
+  }
+  .card-image-container {
+    width: 36.4rem;
+    height: 19.2rem;
+    margin: 0 0 1rem 0;
+  }
+  .card-image {
+    width: 100%;
+  }
+
+  .card-title-name {
+    font-size: 2rem;
+  }
+  .text-cuisine,
+  .text-town {
+    font-size: 1.3rem;
+  }
+  .card-title-rating,
+  .right-column {
+    font-size: 1.6rem;
+  }
+
+  .right-column {
+    font-family: "Roboto Regular";
+  }
+}
+
+@media (max-width: 668px) {
+  .wrapper-language {
+    right: 1.3rem;
+  }
+  .text-field__input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 644px) {
+  .search-query {
+    .text-field__input {
+      width: 20rem;
+    }
+  }
+  .search-city {
+    .text-field__input {
+      width: 18rem;
+    }
+  }
+}
+
+@media (max-width: 490px) {
+  .search-form,
+  .breadcrumb,
+  .all-restaurants,
+  .card-title-rating-count,
+  .text-distance {
+    display: none;
+  }
+
+  .right-column .text-time {
+    display: none;
+  }
+
+  .header {
+    flex-direction: row;
+    justify-content: center;
+    padding: 1.4rem 1rem 1.4rem 1rem;
+    align-items: center;
+  }
+  .search-lang-bar {
+    justify-content: end;
+    position: absolute;
+    right: 0;
+  }
+
+  .left-column {
+    .text-price,
+    .text-currency ::after {
+      display: none;
+    }
+    flex-direction: column-reverse;
+  }
+
+  .logo-1 {
+    display: none;
+  }
+  .logo-2 {
+    display: block;
+  }
+
+  .text-currency-1 {
+    color: #5b484a;
+    display: flex;
+    align-items: center;
+    span {
+      color: #ab9c9e;
+      display: flex;
+      align-items: center;
+      margin: 0 0 0 0.3rem;
+    }
+  }
+
+  .wrapper-language {
+    margin: 0 0 0.5rem 0;
+  }
+
+  .open-until {
+    bottom: 21.7rem;
+  }
+}
+
+@media (max-width: 434px) {
+  .text-field__label {
+    @media (max-width: 434px) {
+      left: 1rem;
+    }
+  }
+
+  .text-field__input,
+  .text-field__label {
+    font-size: 1.5rem;
+  }
+
+  .main {
+    padding: 2.4rem 0rem 0rem 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .searchform {
+    width: 83%;
+  }
+  .main-title {
+    font-size: 2.5rem;
+  }
+  .card-image-container {
+    width: 100%;
+  }
+  .card {
+    width: 100%;
+  }
+}

@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet">
+
+  <title>Restaurant Guru</title>
+</head>
+
+<body>
+  <div id="app">
+    <div class="container">
+      <header class="header-main">
+        <div class="header inner">
+          <a href="#" class="logo logo-1"><img src="img/header/logo.svg" alt="Logo"></a>
+          <a href="#" class="logo logo-2"><img src="img/header/logo-mobile.svg" alt="Logo"></a>
+          <div class="search-lang-bar">
+
+
+            <form class="search-form" onsubmit="event.preventDefault(); ">
+
+              <div class="input-container search-query">
+                <label class="text-field__label" for="find">Найти: </label>
+                <input class="text-field__input" type="text" id="find" name="find" value="Рестораны"
+                  placeholder="Рестораны">
+              </div>
+              <div class="input-container search-city">
+                <label class="text-field__label" for="where">Где: </label>
+                <input class="text-field__input" type="text" id="where" name="where" value="Москва"
+                  placeholder="Москва">
+
+              </div>
+              <button type="submit" class="search-button">
+                <img class="icon-search" src="img/header/search.svg" alt="Найти">
+              </button>
+            </form>
+
+            <div class="wrapper-language" id="wrapper-language-js">
+              <span class="active-lang flag-russian" id="active-lang-js"></span>
+
+              <div class="dropdown hide" id="dropdown-js">
+                <span class="close-icon-wrapper"></span>
+                <a href="#" class="lang flag-russian"> Русский</a>
+                <a href="#" class="lang flag-english"> English</a>
+                <a href="#" class="lang flag-espanol"> Espanol</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </header>
+
+      <div class="breadcrumb">
+        <ul class="breadcrumb-list inner">
+          <li><a href="#">Главная</a></li>
+          <li>/</li>
+          <li><a href="#">Россия </a></li>
+          <li>/</li>
+          <li><a href="#">Москва </a></li>
+          <li>/</li>
+          <li><a href="#">Рестораны</a></li>
+        </ul>
+      </div>
+
+      <main class="main">
+        <div class="main-content inner">
+          <div class="main-title-wrapper">
+            <h1 class="main-title" id="test">Рестораны Москвы</h1>
+            <a class="all-restaurants" href="#">Все рестораны</a>
+          </div>
+
+          <!---------------slider------------------>
+
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide">
+                <div class="slider-item card">
+                  <span class="card-image-container">
+                    <img src="img/card/card-photo.webp" alt="" class="card-image">
+                  </span>
+                  <div class="open-until">Открыто до <span>00:00</span></div>
+                  <div class="card-info">
+                    <div class="card-title">
+                      <h3 class="card-title-name">Апшерон</h3>
+                      <p class="card-title-rating">
+                        4.2
+                        <span class="card-title-rating-count">(842)</span>
+                      </p>
+                    </div>
+                    <div class="card-text">
+                      <div class="left-column">
+                        <p class="text-town">#4 ресторан в г. Подольск</p>
+                        <p class="text-cuisine">Европейская, Итальянская</p>
+                        <div class="text-price">
+                          <p class="text-currency"> ₽ ₽ <span> ₽ ₽</span> </p>
+                          <p class="text-check">Средний чек: 1200₽</p>
+                        </div>
+
+                      </div>
+                      <div class="right-column">
+                        <p class="text-time">12 минут</p>
+                        <p class="text-distance">6.2 км </p>
+                        <p class="text-currency text-currency-1">₽ ₽ <span> ₽ ₽</span> </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="slider-item card">
+                  <span class="card-image-container">
+                    <img src="img/card/card-photo.webp" alt="" class="card-image">
+                  </span>
+                  <div class="open-until">Открыто до <span>00:00</span></div>
+                  <div class="card-info">
+                    <div class="card-title">
+                      <h3 class="card-title-name">Апшерон</h3>
+                      <p class="card-title-rating">
+                        4.2
+                        <span class="card-title-rating-count">(842)</span>
+                      </p>
+                    </div>
+                    <div class="card-text">
+                      <div class="left-column">
+                        <p class="text-town">#4 ресторан в г. Подольск</p>
+                        <p class="text-cuisine">Европейская, Итальянская</p>
+                        <div class="text-price">
+                          <p class="text-currency"> ₽ ₽ <span> ₽ ₽</span> </p>
+                          <p class="text-check">Средний чек: 1200₽</p>
+                        </div>
+
+                      </div>
+                      <div class="right-column">
+                        <p class="text-time">12 минут</p>
+                        <p class="text-distance">6.2 км </p>
+                        <p class="text-currency text-currency-1">₽ ₽ <span> ₽ ₽</span> </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="slider-item card">
+                  <span class="card-image-container">
+                    <img src="img/card/card-photo.webp" alt="" class="card-image">
+                  </span>
+                  <div class="open-until">Открыто до <span>00:00</span></div>
+                  <div class="card-info">
+                    <div class="card-title">
+                      <h3 class="card-title-name">Апшерон</h3>
+                      <p class="card-title-rating">
+                        4.2
+                        <span class="card-title-rating-count">(842)</span>
+                      </p>
+                    </div>
+                    <div class="card-text">
+                      <div class="left-column">
+                        <p class="text-town">#4 ресторан в г. Подольск</p>
+                        <p class="text-cuisine">Европейская, Итальянская</p>
+                        <div class="text-price">
+                          <p class="text-currency"> ₽ ₽ <span> ₽ ₽</span> </p>
+                          <p class="text-check">Средний чек: 1200₽</p>
+                        </div>
+
+                      </div>
+                      <div class="right-column">
+                        <p class="text-time">12 минут</p>
+                        <p class="text-distance">6.2 км </p>
+                        <p class="text-currency text-currency-1">₽ ₽ <span> ₽ ₽</span> </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="slider-item card">
+                  <span class="card-image-container">
+                    <img src="img/card/card-photo.webp" alt="" class="card-image">
+                  </span>
+                  <div class="open-until">Открыто до <span>00:00</span></div>
+                  <div class="card-info">
+                    <div class="card-title">
+                      <h3 class="card-title-name">Апшерон</h3>
+                      <p class="card-title-rating">
+                        4.2
+                        <span class="card-title-rating-count">(842)</span>
+                      </p>
+                    </div>
+                    <div class="card-text">
+                      <div class="left-column">
+                        <p class="text-town">#4 ресторан в г. Подольск</p>
+                        <p class="text-cuisine">Европейская, Итальянская</p>
+                        <div class="text-price">
+                          <p class="text-currency"> ₽ ₽ <span> ₽ ₽</span> </p>
+                          <p class="text-check">Средний чек: 1200₽</p>
+                        </div>
+
+                      </div>
+                      <div class="right-column">
+                        <p class="text-time">12 минут</p>
+                        <p class="text-distance">6.2 км </p>
+                        <p class="text-currency text-currency-1">₽ ₽ <span> ₽ ₽</span> </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="slider-item card">
+                  <span class="card-image-container">
+                    <img src="img/card/card-photo.webp" alt="" class="card-image">
+                  </span>
+                  <div class="open-until">Открыто до <span>00:00</span></div>
+                  <div class="card-info">
+                    <div class="card-title">
+                      <h3 class="card-title-name">Апшерон</h3>
+                      <p class="card-title-rating">
+                        4.2
+                        <span class="card-title-rating-count">(842)</span>
+                      </p>
+                    </div>
+                    <div class="card-text">
+                      <div class="left-column">
+                        <p class="text-town">#4 ресторан в г. Подольск</p>
+                        <p class="text-cuisine">Европейская, Итальянская</p>
+                        <div class="text-price">
+                          <p class="text-currency"> ₽ ₽ <span> ₽ ₽</span> </p>
+                          <p class="text-check">Средний чек: 1200₽</p>
+                        </div>
+
+                      </div>
+                      <div class="right-column">
+                        <p class="text-time">12 минут</p>
+                        <p class="text-distance">6.2 км </p>
+                        <p class="text-currency text-currency-1">₽ ₽ <span> ₽ ₽</span> </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="slider-item card">
+                  <span class="card-image-container">
+                    <img src="img/card/card-photo.webp" alt="" class="card-image">
+                  </span>
+                  <div class="open-until">Открыто до <span>00:00</span></div>
+                  <div class="card-info">
+                    <div class="card-title">
+                      <h3 class="card-title-name">Апшерон</h3>
+                      <p class="card-title-rating">
+                        4.2
+                        <span class="card-title-rating-count">(842)</span>
+                      </p>
+                    </div>
+                    <div class="card-text">
+                      <div class="left-column">
+                        <p class="text-town">#4 ресторан в г. Подольск</p>
+                        <p class="text-cuisine">Европейская, Итальянская</p>
+                        <div class="text-price">
+                          <p class="text-currency"> ₽ ₽ <span> ₽ ₽</span> </p>
+                          <p class="text-check">Средний чек: 1200₽</p>
+                        </div>
+
+                      </div>
+                      <div class="right-column">
+                        <p class="text-time">12 минут</p>
+                        <p class="text-distance">6.2 км </p>
+                        <p class="text-currency text-currency-1">₽ ₽ <span> ₽ ₽</span> </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <!----Navigation buttons ---->
+            <!-- <div class="left">
+            </div> -->
+            <div class="right">
+            </div>
+          </div>
+        </div>
+      </main>
+
+    </div>
+
+
+
+
+  </div>
+
+
+  <script type="module" src="/main.js"></script>
+</body>
+
+</html>
